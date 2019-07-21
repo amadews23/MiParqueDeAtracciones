@@ -5,7 +5,7 @@ package Inicio;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.00 2019/5/17
+ * @version 1.00 2019/7/21
  */
 
 public class Parque {
