@@ -136,7 +136,8 @@ public class CalculosFechas {
     public static EnumTipoCliente devolverTipoCliente(Persona persona) {
 
         EnumTipoCliente tipoCliente = null;
-        int edad = persona.getEdad();
+        
+        int edad = calcularEdad(persona.getFechaNacimiento());
         
         if (edad >= EnumTipoCliente.BEBE.getEdadMin() 
             && edad <= EnumTipoCliente.BEBE.getEdadMax() ) {
