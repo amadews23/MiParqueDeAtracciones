@@ -17,7 +17,7 @@ public class Persona {
     protected int diaNacimiento;
     protected int mesNacimiento;
     protected int anyoNacimiento;
-    protected int edad;
+
     
     public Persona(String nombre, 
                    String apellidos, 
