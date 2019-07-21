@@ -95,10 +95,7 @@ public class Persona {
         this.anyoNacimiento = anyoNacimiento;
     }
 
-    public int getEdad() {
-        return edad;
-    }
-   
+  
     @Override
     public String toString() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
