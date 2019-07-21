@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.00 2019/5/17
+ * @version 1.10 2019/7/21
  */
 
 public class Persona {
@@ -19,7 +19,10 @@ public class Persona {
     protected int anyoNacimiento;
     protected int edad;
     
-    public Persona(String nombre, String apellidos, GregorianCalendar fechaNacimiento) {
+    public Persona(String nombre, 
+                   String apellidos, 
+                   GregorianCalendar fechaNacimiento) {
+        
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fechaNacimiento = fechaNacimiento;
@@ -29,7 +32,12 @@ public class Persona {
 
     }
 
-    public Persona(String nombre, String apellidos, int diaNacimiento, int mesNacimiento, int anyoNacimiento) {
+    public Persona(String nombre, 
+                   String apellidos, 
+                   int diaNacimiento, 
+                   int mesNacimiento, 
+                   int anyoNacimiento) {
+        
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.diaNacimiento = diaNacimiento;
