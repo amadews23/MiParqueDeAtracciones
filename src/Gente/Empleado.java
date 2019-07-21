@@ -84,9 +84,6 @@ public class Empleado extends Persona {
                +"\n Nombre: " + nombre + " " + apellidos + " DNI:" + dni 
                + " Fecha de Nacimiento: " + formatoFecha.format(fechaNacimiento.getTime())
                +"\n" ;
-  
-    }
-    
-
-   
+        
+    }   
 }
