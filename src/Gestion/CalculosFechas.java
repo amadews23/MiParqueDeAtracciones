@@ -2,7 +2,6 @@ package Gestion;
 
 import Gente.Persona;
 
-
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -91,7 +90,7 @@ public class CalculosFechas {
         int diaAnyoNuevo = fechaAnyoNuevo.get(Calendar.DAY_OF_MONTH);
         int diaFinNavidades = fechaFinNavidades.get(Calendar.DAY_OF_MONTH);
         
-        //Comprobamos que no esté comprendido en el periodo de Año Nuevo y fin de Navidades
+        //TEMPORADA ALTA: Entre Año Nuevo y fin de Navidades.
         if ( (fechaEntrada.get(Calendar.DAY_OF_YEAR) >= diaAnyoNuevo) 
               && (fechaEntrada.get(Calendar.DAY_OF_YEAR) <= diaFinNavidades) ) {
             
@@ -99,7 +98,7 @@ public class CalculosFechas {
             return tipoTemporada;
         }
 
-        //meses de temporada baja. Febrero y Noviembre
+        //meses de TEMPORADA BAJA: Febrero y Noviembre
         int arrayTemporadaBaja[] ;
         arrayTemporadaBaja= new int[] {Calendar.FEBRUARY, Calendar.NOVEMBER};
         
@@ -111,7 +110,7 @@ public class CalculosFechas {
             }    
         }
         
-        //meses de temporada alta. Abril, Agosto y Diciembre
+        //meses de TEMPORADA ALTA: Abril, Agosto y Diciembre
         int arrayTemporadaAlta[] ;
         arrayTemporadaAlta = new int[] {Calendar.APRIL, Calendar.AUGUST, Calendar.DECEMBER};
         
@@ -122,7 +121,7 @@ public class CalculosFechas {
                 return tipoTemporada;
             }    
         }
-        //si no es temporada Alta ni baja entonces es Media.
+        //si no es temporada Alta ni Baja entonces es TEMPORADA MEDIA.
         return tipoTemporada;
     }
 
@@ -156,6 +155,5 @@ public class CalculosFechas {
         } 
         return tipoCliente;
     }
-
     
 }
