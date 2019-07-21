@@ -10,14 +10,24 @@ import java.util.GregorianCalendar;
  * @version 1.00 2019/5/17
  */
 
-public class Cliente extends Persona{
+public class Cliente extends Persona {
     private int altura; //en centimetros
     private boolean esEstudiante;
     private boolean esDiscapacitado;
     private boolean esCarnetJoven;
     private boolean esDesempleado;
 
-    public Cliente(int altura, boolean esEstudiante, boolean esDiscapacitado, boolean esCarnetJoven, boolean esDesempleado, String nombre, String apellidos, int diaNacimiento, int mesNacimiento, int anyoNacimiento) {
+    public Cliente(int altura, 
+                   boolean esEstudiante, 
+                   boolean esDiscapacitado, 
+                   boolean esCarnetJoven, 
+                   boolean esDesempleado, 
+                   String nombre, 
+                   String apellidos, 
+                   int diaNacimiento, 
+                   int mesNacimiento, 
+                   int anyoNacimiento) {
+        
         super(nombre, apellidos, diaNacimiento, mesNacimiento, anyoNacimiento);
         this.altura = altura;
         this.esEstudiante = esEstudiante;
@@ -26,7 +36,15 @@ public class Cliente extends Persona{
         this.esDesempleado = esDesempleado;
     }
 
-    public Cliente(int altura, boolean esEstudiante, boolean esDiscapacitado, boolean esCarnetJoven, boolean esDesempleado, String nombre, String apellidos, GregorianCalendar fechaNacimiento) {
+    public Cliente(int altura, 
+                   boolean esEstudiante, 
+                   boolean esDiscapacitado, 
+                   boolean esCarnetJoven, 
+                   boolean esDesempleado, 
+                   String nombre, 
+                   String apellidos, 
+                   GregorianCalendar fechaNacimiento) {
+        
         super(nombre, apellidos, fechaNacimiento);
         this.altura = altura;
         this.esEstudiante = esEstudiante;
