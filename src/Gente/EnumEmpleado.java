@@ -33,9 +33,6 @@ public enum EnumEmpleado {
     
     public float obtenerSueldo() {
         return SUELDO_BASE+(incrementoSueldo*SUELDO_BASE);
-    }
-    
-    
-    
-    
+        
+    }         
 }
