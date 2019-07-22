@@ -145,43 +145,6 @@ public class Atraccion {
         this.tipoAtraccion = tipoAtraccion;
     }
     
-    public void anyadirEmpleado(Empleado empleado, EnumEmpleado tipoEmpleado) {
-        
-        switch (tipoEmpleado) {
-                case ATENCION:
-                    listaEmpleadosAtenciones.add(empleado);
-                    break;
-                case AYUDANTE:
-                    listaEmpleadosAyudantes.add(empleado);
-                    break;
-                case RELACIONES:
-                    listaEmpleadosRelaciones.add(empleado); 
-                    break;
-                case RESPONSABLE:
-                    listaEmpleadosResponsables.add(empleado);
-                    break;
-        }     
-
-    }
-    
-    public void quitarEmpleado(EnumEmpleado tipoEmpleado, int nEmpleado ) {
-        
-        switch (tipoEmpleado) {
-                case ATENCION:
-                    listaEmpleadosAtenciones.remove(nEmpleado);
-                    break;
-                case AYUDANTE:
-                    listaEmpleadosAyudantes.remove(nEmpleado);
-                    break;
-                case RELACIONES:
-                    listaEmpleadosRelaciones.remove(nEmpleado);
-                    break;
-                case RESPONSABLE:
-            listaEmpleadosResponsables.remove(nEmpleado);
-                    break;
-        }
-  
-    }
     
     @Override
     public String toString() {
