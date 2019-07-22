@@ -27,7 +27,10 @@ public class EntradaGeneral extends Entrada {
      * @param cliente
      * @param esVip
      */
-    public EntradaGeneral(GregorianCalendar fechaHoraEntrada, Cliente cliente, boolean esVip) {
+    public EntradaGeneral(GregorianCalendar fechaHoraEntrada, 
+                          Cliente cliente, 
+                          boolean esVip) {
+        
         super(fechaHoraEntrada, cliente, esVip);
             this.fechaHoraEntrada = fechaHoraEntrada;
             this.cliente = cliente;
@@ -40,14 +43,14 @@ public class EntradaGeneral extends Entrada {
             this.tipoTemporada = CalculosFechas.devolverTemporada(fechaHoraEntrada);
             this.tipoCliente = CalculosFechas.devolverTipoCliente(cliente);
             this.precio = CalculosPrecios.calcularPrecioEntrada(PRECIO_BASE_ENTRADA,
-                                                tipoTemporada, 
-                                                tipoCliente,                                                   
-                                                esEstudiante,
-                                                esDiscapacitado,
-                                                esCarneJoven,
-                                                esDesempleado,
-                                                esVip,
-                                                PRECIO_BASE_VIP );
+                                                                tipoTemporada, 
+                                                                tipoCliente,                                                   
+                                                                esEstudiante,
+                                                                esDiscapacitado,
+                                                                esCarneJoven,
+                                                                esDesempleado,
+                                                                esVip,
+                                                                PRECIO_BASE_VIP );
     }
 
     public boolean isEsEstudiante() {
@@ -161,6 +164,7 @@ public class EntradaGeneral extends Entrada {
             vip = "Si";
             precioVip = "\n* Precio VIP: " + (PRECIO_BASE_VIP + (PRECIO_BASE_VIP *  tipoCliente.getDescuento())) + " (Para " + tipoCliente.getNombreTipoCliente() + ")*";
         }
+        
         return  "----------------------------------------------------------------------------\n"
                 +"| Fecha: " + formatoFecha.format(fechaHoraEntrada.getTime()) + " - " +tipoTemporada.getNombreTipoTemporada() +" |"
                 + "\n | Tipo Cliente: " + tipoCliente.getNombreTipoCliente() + " | VIP :" + vip + " |"
