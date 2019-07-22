@@ -22,7 +22,10 @@ public class Entrada {
      * @param cliente
      * @param esVip
      */
-    public Entrada(GregorianCalendar fechaHoraEntrada, Cliente cliente, boolean esVip) {
+    public Entrada(GregorianCalendar fechaHoraEntrada, 
+                   Cliente cliente, 
+                   boolean esVip) {
+        
         this.fechaHoraEntrada = fechaHoraEntrada;
         this.cliente = cliente;
         this.esVip = esVip;
