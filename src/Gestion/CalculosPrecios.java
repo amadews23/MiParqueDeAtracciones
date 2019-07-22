@@ -18,9 +18,7 @@ public class CalculosPrecios {
                                         boolean esDesempleado,
                                         boolean esVip,
                                         float precioVip ) {
-    
-
-    
+       
         float precioEntradaTemporada;
         float descuentoEdad ;
         float descuentoEstudiante = 0.0F;
@@ -114,40 +112,8 @@ public class CalculosPrecios {
                                         precioVip );
 
         return precioEntrada;
+        
     }
-
-
-    /**
-     * Método para calcular precio de la Entrada Familiar
-     * 
-     * @param precioBaseEntrada
-     * @param tipoTemporada
-     * @param tipoCliente
-     * @param esEstudiante
-     * @param esDiscapacitado
-     * @param esCarneJoven
-     * @param esDesempleado
-     * @return
-     */
-    public static float calcularPrecioEntrada(float precioBaseEntrada,
-                                                   EnumTemporadaPrecio tipoTemporada, 
-                                                   EnumTipoCliente tipoCliente,                                                   
-                                                   boolean esEstudiante,
-                                                   boolean esDiscapacitado,
-                                                   boolean esCarneJoven,
-                                                   boolean esDesempleado ) {
-        float precioEntrada;
-
-        precioEntrada = calcularEntrada(precioBaseEntrada,
-                                        tipoTemporada, 
-                                        tipoCliente,                                                   
-                                        esEstudiante,
-                                        esDiscapacitado,
-                                        esCarneJoven,
-                                        esDesempleado,
-                                        false,
-                                        0 );
-        return precioEntrada;
-    }
+   
     
 }
