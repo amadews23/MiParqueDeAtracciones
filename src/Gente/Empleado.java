@@ -58,7 +58,6 @@ public class Empleado extends Persona {
         this.sueldo = tipoEmpleado.obtenerSueldo();
     }
 
-
     public int getDni() {
         return dni;
     }
