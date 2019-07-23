@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/21
+ * @version 1.10 2019/7/23
  */
 
 public class Entrada {
@@ -28,6 +28,30 @@ public class Entrada {
         
         this.fechaHoraEntrada = fechaHoraEntrada;
         this.cliente = cliente;
+        this.esVip = esVip;
+    }
+
+    public GregorianCalendar getFechaHoraEntrada() {
+        return fechaHoraEntrada;
+    }
+
+    public void setFechaHoraEntrada(GregorianCalendar fechaHoraEntrada) {
+        this.fechaHoraEntrada = fechaHoraEntrada;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public boolean isEsVip() {
+        return esVip;
+    }
+
+    public void setEsVip(boolean esVip) {
         this.esVip = esVip;
     }
     
