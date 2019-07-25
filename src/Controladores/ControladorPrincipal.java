@@ -11,6 +11,7 @@ import Gestion.EnumFestivos;
 import Gestion.EnumHorario;
 import Gestion.EnumTipoCliente;
 import Gestion.ListaObjetos;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -272,4 +273,72 @@ public class ControladorPrincipal {
         }
         
     }
+
+    public void mostrarEntradasGeneral() {
+        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        System.out.println("\nLista de Entradas General");
+        System.out.println("--------------------------\n");
+        for (int i=0; i< listaObjetos.getListaEntradasGeneral().size(); i++) {
+            System.out.println(i+ "-" + "Fecha: " 
+                    + formatoFecha.format(listaObjetos.getListaEntradasGeneral().get(i).getFechaHoraEntrada().getTime())
+                    + ", Temporada:" + listaObjetos.getListaEntradasGeneral().get(i).getTipoTemporada()
+                    + ", Tipo Cliente:" + listaObjetos.getListaEntradasGeneral().get(i).getTipoCliente()
+                    + "\n PRECIO:" + listaObjetos.getListaEntradasGeneral().get(i).getPrecio()
+                    );
+        } 
+    }
+    
+    public void mostrarEntradasLaboral() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        System.out.println("\nLista de Entradas Laboral");
+        System.out.println("--------------------------\n");
+        for (int i=0; i< listaObjetos.getListaEntradasLaborable().size(); i++) {
+            System.out.println(i+ "-" + "Fecha: " + formatoFecha.format(listaObjetos.getListaEntradasLaborable().get(i).getFechaHoraEntrada().getTime())
+                    + ", Temporada:" + listaObjetos.getListaEntradasLaborable().get(i).getTipoTemporada()
+                    + ", Tipo Cliente:" + listaObjetos.getListaEntradasLaborable().get(i).getTipoCliente()
+                    + "\n PRECIO:" + listaObjetos.getListaEntradasLaborable().get(i).getPrecio()
+                    );
+        } 
+    }
+    
+    public void mostrarEntradasTarde() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        System.out.println("\nLista de Entradas de Tarde");
+        System.out.println("---------------------------\n");      
+        for (int i=0; i< listaObjetos.getListaEntradasTarde().size(); i++) {
+            System.out.println(i+ "-" + "Fecha: " + formatoFecha.format(listaObjetos.getListaEntradasTarde().get(i).getFechaHoraEntrada().getTime())
+                    + ", Temporada:" + listaObjetos.getListaEntradasTarde().get(i).getTipoTemporada()
+                    + ", Tipo Cliente:" + listaObjetos.getListaEntradasTarde().get(i).getTipoCliente()
+                    + "\n PRECIO:" + listaObjetos.getListaEntradasTarde().get(i).getPrecio()
+                    );
+        } 
+    }
+    
+    public void mostrarEntradasAniversario() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        System.out.println("Lista de Entradas Aniversario");
+        System.out.println("-----------------------------\n");        
+        for (int i=0; i< listaObjetos.getListaEntradasAniversario().size(); i++) {
+            System.out.println(i+ "-" + "Fecha: " + formatoFecha.format(listaObjetos.getListaEntradasAniversario().get(i).getFechaHoraEntrada().getTime())
+                    + ", Temporada:" + listaObjetos.getListaEntradasAniversario().get(i).getTipoTemporada()
+                    + ", Tipo Cliente:" + listaObjetos.getListaEntradasAniversario().get(i).getTipoCliente()
+                    + "\n PRECIO:" + listaObjetos.getListaEntradasAniversario().get(i).getPrecio()
+                    );
+        } 
+    }
+    
+    public void mostrarEntradasFamilia() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        System.out.println("Lista de Entradas Familia");
+        System.out.println("--------------------------\n");        
+        for (int i=0; i< listaObjetos.getListaEntradasFamilia().size(); i++) {
+            System.out.println(i+ "-" + "Fecha: " + formatoFecha.format(listaObjetos.getListaEntradasFamilia().get(i).getFechaHoraEntrada().getTime())
+                    + ", Temporada:" + listaObjetos.getListaEntradasFamilia().get(i).getTipoTemporada()
+                    + ", Tipo Cliente:" + listaObjetos.getListaEntradasFamilia().get(i).getTipoCliente()
+                    + "\n PRECIO:" + listaObjetos.getListaEntradasFamilia().get(i).getPrecio()
+                    );
+        } 
+    }    
+    
 }
