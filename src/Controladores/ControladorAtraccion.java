@@ -2,7 +2,7 @@ package Controladores;
 
 import Atracciones.Atraccion;
 import Gente.Empleado;
-import Gente.EnumEmpleado;
+import Gente.EnumTipoEmpleado;
 
 /**
  * En esta clase están las operaciones a realizar sobre atracciones
@@ -14,7 +14,7 @@ public class ControladorAtraccion {
     
     public void anyadirEmpleado(Atraccion atraccion, 
                                 Empleado empleado, 
-                                EnumEmpleado tipoEmpleado) {
+                                EnumTipoEmpleado tipoEmpleado) {
         
         switch (tipoEmpleado) {
                 case ATENCION:
@@ -34,7 +34,7 @@ public class ControladorAtraccion {
     }
     
     public void quitarEmpleado(Atraccion atraccion,
-                               EnumEmpleado tipoEmpleado, 
+                               EnumTipoEmpleado tipoEmpleado, 
                                int nEmpleado ) {
         
         switch (tipoEmpleado) {
