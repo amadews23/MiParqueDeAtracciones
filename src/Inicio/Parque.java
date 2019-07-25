@@ -1,11 +1,14 @@
 package Inicio;
 
-//import Menus.Vista;
+import Vista.Menu;
+import Gestion.ListaObjetos;
+
+
 
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.00 2019/7/21
+ * @version 1.10 2019/7/25
  */
 
 public class Parque {
@@ -14,10 +17,16 @@ public class Parque {
      * @param args 
      */
     public static void main(String[] args) {
-
- //       Apertura apertura = new Apertura();
- //       Vista menu = new Vista(apertura.iniciarActividad());
- //       menu.menuPrincipal();
+        
+        //Apertura apertura = new Apertura();
+        //Menu menu = new Menu(apertura.iniciarActividad());
+        
+        ListaObjetos listaObjetos = new ListaObjetos();
+        
+        Menu menu = new Menu(listaObjetos);
+          
+ 
+        menu.menuPrincipal();
 
     }
 }
