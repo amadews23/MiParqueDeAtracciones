@@ -28,9 +28,9 @@ public class Menu {
             System.out.println("* Parque de Atracciones UNED_2018-19    *\n");
             System.out.println("*****************************************\n");
             System.out.println("Seleccione una de las siguientes opciones:");
-            //System.out.println("1- Gestionar atracciones");
+            System.out.println("1- Gestionar atracciones");
             System.out.println("2- Gestionar entradas");
-            //System.out.println("3- Gestionar empleados"); 
+            System.out.println("3- Gestionar empleados"); 
             //System.out.println("4- Resúmenes de visitantes y entradas");  
             //System.out.println("*5- Resúmenes de costes de atracción*");              
             System.out.println("6- SALIR\n");
@@ -38,13 +38,13 @@ public class Menu {
         
             switch (seleccion) {
                 case 1:
-                    //menuAtracciones();
+                    menuAtracciones();
                     break;
                 case 2:
                     menuEntradas();
                     break;   
                 case 3:
-                    //menuEmpleados();
+                    menuEmpleados();
                     break;
                 case 4:
                     //menuResumenesVisitantes();
@@ -59,7 +59,47 @@ public class Menu {
         } while (seleccion != 6);
     
     }
+    private void menuAtracciones() {
+        int opcion = 0;
+        System.out.println("-----------------"); 
+        System.out.println("Menu Atracciones"); 
+        System.out.println("-----------------\n");
+        System.out.println("Seleccione una de las siguientes opciones:");
+        System.out.println("1- Dar de alta una nueva atracción");
+        System.out.println("2- Mostrar la lista de todas las atracciones");
+        System.out.println("3- Dar de baja una atracción");   
+        System.out.println("4- Asignar un empleado a una atraccion");
+        System.out.println("5- Dar de baja un empleado en una atracción");
+        System.out.println("6- Volver atrás");
+        
+        do { opcion = Varios.pedirOpcion();
+        
+            switch (opcion) {
+                case 1:
+                    //controladorPrincipal.insertarAtraccion();
+                    break;
+                case 2:
+                    //controladorPrincipal.listarAtracciones();
+                    break;
+                case 3:
+                    //controladorPrincipal.darDeBajaAtraccion();
+                    break;
+                case 4:
+                    //controladorPrincipal.asignarEmpleadoAtraccion();
+                    break;         
+                case 5:
+                    //controladorPrincipal.desasignarEmpleadoAtraccion();
+                    break;                             
+                case 6:
+                    System.out.println("Vamos al menú principal...");
+                    break;                    
+                default:
+                    System.out.println("Seleccione una opción de las del Menú.");
+                    break;
+            }
+        } while (opcion < 1 || opcion > 6);    
 
+    }
     private void menuEntradas() {
         int opcion = 0;
         System.out.println("--------------"); 
@@ -141,4 +181,74 @@ public class Menu {
         } while (opcion < 1 || opcion > 6);
     }
 
+    private void menuEmpleados() {
+        int opcion = 0;
+        System.out.println("---------------"); 
+        System.out.println("Menú Empleados"); 
+        System.out.println("---------------\n");
+        System.out.println("Seleccione una de las siguientes opciones:");
+        System.out.println("1- Dar de alta un nuevo empleado ");
+        System.out.println("2- Mostrar listas de empleados ");
+        System.out.println("3- Volver atrás");
+        
+        do { opcion = Varios.pedirOpcion();
+        
+            switch (opcion) {
+                case 1:
+                    controladorPrincipal.crearEmpleado();
+                    break;
+                case 2:
+                    menuListarEmpleados();
+                    break;
+                case 3:
+                    System.out.println("Vamos al menú principal...");
+                    break;                    
+                default:
+                    System.out.println("Seleccione una opción de las del Menú.");
+                    break;
+            }
+        } while (opcion < 1 || opcion > 3);          
+    } 
+    
+    private void menuListarEmpleados() {
+        int opcion = 0;
+        System.out.println("-------------------"); 
+        System.out.println("Listas de Empleados"); 
+        System.out.println("-------------------\n");
+        System.out.println("Seleccione una de las siguientes opciones:");
+        System.out.println("1- Ver lista de Empleados Atención al Cliente");
+        System.out.println("2- Ver lista de Empleados Ayudantes de Atracción");
+        System.out.println("3- Ver lista de Empleados Relaciones Públicas");
+        System.out.println("4- Ver lista de Empleados Responsables de Atracción");
+        System.out.println("5- Ver lista de Todos los Empleados");
+        System.out.println("6- Volver atrás");
+        
+        do { opcion = Varios.pedirOpcion();
+        
+            switch (opcion) {
+                case 1:
+                    controladorPrincipal.mostrarListaEmpleadosAtencion();
+                    break;
+                case 2:
+                    controladorPrincipal.mostrarListaEmpleadosAyudantes();
+                    break;
+                case 3:
+                    controladorPrincipal.mostrarListaEmpleadosRelaciones();
+                    break;
+                case 4:
+                    controladorPrincipal.mostrarListaEmpleadosResponsables();
+                    break;    
+                case 5:
+                    controladorPrincipal.mostrarListaEmpleados();
+                    break;    
+                case 6:
+                    System.out.println("Vamos al menú principal...");
+                    break;                    
+                default:
+                    System.out.println("Seleccione una opción de las del Menú.");
+                    break;
+            }
+        } while (opcion < 1 || opcion > 6);
+    }
+        
 }
