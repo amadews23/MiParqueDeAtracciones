@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.00 2019/5/17
+ * @version 1.10 2019/7/25
  */
 
 public class EntradaAniversario extends EntradaGeneral {
@@ -14,10 +14,5 @@ public class EntradaAniversario extends EntradaGeneral {
         super(fechaHoraEntrada, cliente, esVip);
                 this.precio = this.precio + (this.precio*DESCUENTO_ANIVERSARIO);
     }
-
-
- 
-    //definiremos en el/los contructor/es que se asigne el tipoCliente según edad cliente
-    //se marcarán autmaticamente
    
 }
