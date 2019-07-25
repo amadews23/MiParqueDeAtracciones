@@ -1,13 +1,23 @@
 package Vista;
 
 import Utilidades.Varios;
+import Controladores.ControladorPrincipal;
+import Gestion.ListaObjetos;
+
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/21
+ * @version 1.10 2019/7/25
  */
  
 public class Menu {
+    
+    private final ControladorPrincipal controladorPrincipal;
+    
+    
+    public Menu(ListaObjetos listaObjetos) {
+        controladorPrincipal = new ControladorPrincipal(listaObjetos);
+    }
     
     public void menuPrincipal() {
         
@@ -57,14 +67,14 @@ public class Menu {
         System.out.println("--------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
         System.out.println("1- Vender Entradas");
-        System.out.println("2- Lista de Entradas");
+        //System.out.println("2- Lista de Entradas");
         System.out.println("3- Volver atrás");
         
         do { opcion = Varios.pedirOpcion();
         
             switch (opcion) {
                 case 1:
-                    //controladorPrincipal.venderEntrada();
+                    controladorPrincipal.venderEntradas();
                     break;
                 case 2:
                     //controladorPrincipal.listarEntradas();
