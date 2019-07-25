@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 
 public class Empleado extends Persona {
   
-    private final EnumEmpleado tipoEmpleado;
+    private final EnumTipoEmpleado tipoEmpleado;
     private int dni;
     private final float sueldo;
 
@@ -22,7 +22,7 @@ public class Empleado extends Persona {
      * @param apellidos
      * @param fechaNacimiento
      */
-    public Empleado(EnumEmpleado tipoEmpleado, 
+    public Empleado(EnumTipoEmpleado tipoEmpleado, 
                     int dni, 
                     String nombre, 
                     String apellidos, 
@@ -44,7 +44,7 @@ public class Empleado extends Persona {
      * @param mesNacimiento
      * @param anyoNacimiento
      */
-    public Empleado(EnumEmpleado tipoEmpleado, 
+    public Empleado(EnumTipoEmpleado tipoEmpleado, 
                     int dni, 
                     String nombre, 
                     String apellidos, 
@@ -71,7 +71,7 @@ public class Empleado extends Persona {
         return sueldo;
     }
 
-    public EnumEmpleado getTipoEmpleado() {
+    public EnumTipoEmpleado getTipoEmpleado() {
         return tipoEmpleado;
     }
 
