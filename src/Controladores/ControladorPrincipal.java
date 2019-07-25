@@ -1,6 +1,7 @@
 package Controladores;
 
 import Gente.Cliente;
+import Gente.Empleado;
 import Gestion.CalculosFechas;
 import Gestion.EntradaGeneral;
 import Gestion.EntradaFamilia;
@@ -30,6 +31,7 @@ public class ControladorPrincipal {
     private final ControladorEntradaAniversario controladorEntradaAniversario;
     private final GregorianCalendar fechaHoraHoy;
     private final ControladorCliente controladorCliente;
+    private final ControladorEmpleado controladorEmpleado;
     private EnumTipoCliente tipoCliente;
 
     
@@ -42,6 +44,7 @@ public class ControladorPrincipal {
         this.controladorEntradaAniversario = new ControladorEntradaAniversario();
         this.fechaHoraHoy = new GregorianCalendar();
         this.controladorCliente = new ControladorCliente();
+        this.controladorEmpleado = new ControladorEmpleado();
         
 
     }
@@ -339,6 +342,47 @@ public class ControladorPrincipal {
                     + "\n PRECIO:" + listaObjetos.getListaEntradasFamilia().get(i).getPrecio()
                     );
         } 
-    }    
+    } 
+    
+    public void mostrarListaEmpleadosAtencion() {
+        System.out.println("Lista de Empleados de Atención al Cliente:");
+        System.out.println("------------------------------------------\n");       
+        System.out.println(listaObjetos.getListaEmpleadosAtencion()); 
+    }
+    
+    public void mostrarListaEmpleadosAyudantes() {
+        System.out.println("Lista de Empleados de Ayudantes de Atracción:");
+        System.out.println("---------------------------------------------\n");                    
+        System.out.println(listaObjetos.getListaEmpleadosAyudante());
+    }
+    
+    public void mostrarListaEmpleadosRelaciones() {
+        System.out.println("Lista de Empleados de Relaciones Públicas:");
+        System.out.println("------------------------------------------\n");                    
+        System.out.println(listaObjetos.getListaEmpleadosRelaciones());
+    }
+    
+    public void mostrarListaEmpleadosResponsables() {
+        System.out.println("Lista de Empleados de Responsables de Atracción:");
+        System.out.println("------------------------------------------------\n");                    
+        System.out.println(listaObjetos.getListaEmpleadosResponsable());
+    }
+    
+    public void mostrarListaEmpleados() {
+        System.out.println("Lista todos los Empleados:");
+        System.out.println("--------------------------\n");
+        System.out.println(listaObjetos.getListaEmpleadosAtencion()); 
+        System.out.println(listaObjetos.getListaEmpleadosAyudante());
+        System.out.println(listaObjetos.getListaEmpleadosRelaciones());                    
+        System.out.println(listaObjetos.getListaEmpleadosResponsable());
+    }
+
+    public void crearEmpleado() {
+        
+        Empleado empleado = controladorEmpleado.crearEmpleado();
+        if (empleado != null) {
+            listaObjetos.anyadirEmpleado(empleado);
+        }
+    }
     
 }
