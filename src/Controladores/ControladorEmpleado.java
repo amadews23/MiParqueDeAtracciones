@@ -2,22 +2,57 @@ package Controladores;
 
 
 import Gente.Empleado;
-import Gente.EnumEmpleado;
+import Gente.EnumTipoEmpleado;
 import Gente.Persona;
 import Utilidades.Varios;
-//import Gestion.ListaObjetos;
+
 import java.util.InputMismatchException;
 
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.00 2019/5/17
+ * @version 1.10 2019/7/25
  */
 
 public class ControladorEmpleado extends ControladorPersona {
 
     public ControladorEmpleado() {
     
+    }
+    private EnumTipoEmpleado seleccionarTipoEmpleado() {
+
+        int opcion = 0;
+        
+        try {
+           do {
+                System.out.println("Seleccione un numero de la lista");
+                opcion = Varios.pedirOpcion();
+              } while (opcion < 1 || opcion > EnumTipoEmpleado.values().length );
+   
+              switch (opcion) {
+                  case 1:
+                      return EnumTipoEmpleado.ATENCION;
+                  case 2:
+                      return EnumTipoEmpleado.AYUDANTE;
+                  case 3:
+                      return EnumTipoEmpleado.RELACIONES;
+                  case 4:
+                      return EnumTipoEmpleado.RESPONSABLE;
+              }
+        } catch (InputMismatchException e) {
+             
+            System.out.println("Inserte valores correctos:");
+            return null;
+
+        }
+        return null;
+   }
+    
+    private void mostrarTiposEmpleados() {
+        
+         for (  EnumTipoEmpleado E: EnumTipoEmpleado.values() ) {
+            System.out.println((E.ordinal()+1) +"- " + E.getNombreEmpleo());
+        }
     }
     private int solicitarDni() {
         
@@ -27,7 +62,7 @@ public class ControladorEmpleado extends ControladorPersona {
         while (valido == false) {
             try {
                 do {
-                    System.out.print("Introduzca el dni del trabajor:");
+                    System.out.println("Introduzca el dni del trabajor:");
                     opcion = Varios.pedirOpcion();
                     dni = opcion;
                     } while (opcion < 100 || opcion < 9); 
@@ -43,33 +78,39 @@ public class ControladorEmpleado extends ControladorPersona {
         return dni;
     }
    
-    public Empleado crearEmpleado( EnumEmpleado tipoEmpleado) {
+    public Empleado crearEmpleado( ) {
+        
+        System.out.println("Lista de tipos de empleados:");
+        
+        mostrarTiposEmpleados();
+        
+        EnumTipoEmpleado tipoEmpleado = seleccionarTipoEmpleado();
         
         Persona persona = crearPersona();
-        int opcion2 =0;
+        
+        int opcion =0;
         int dni = solicitarDni();
-        Empleado empleado = null;
+
         if (persona != null && dni != 0) {
             do {
                 System.out.println("¿Seguro quiere dar de alta el trabajador? "
                                    + "Pulse 1(Si) 0 2(No)");
-                opcion2 = Varios.pedirOpcion();
-            } while (opcion2 < 1 || opcion2 > 2); 
+                opcion = Varios.pedirOpcion();
+            } while (opcion < 1 || opcion > 2); 
             
-            if (opcion2 == 1) {
+            if (opcion == 1) {
                 
-                empleado = new Empleado( tipoEmpleado, 
-                                                  dni, 
-                                                  persona.getNombre(), 
-                                                  persona.getApellidos(), 
-                                                  persona.getFechaNacimiento());
+                Empleado empleado = new Empleado(tipoEmpleado, 
+                                        dni, 
+                                        persona.getNombre(), 
+                                        persona.getApellidos(), 
+                                        persona.getFechaNacimiento());
 
-                //listaObjetos.anyadirEmpleado(empleadoAtencion);
                 return empleado;
             }
           
         }
-    return empleado;
+        return null;
     }
 }
 
