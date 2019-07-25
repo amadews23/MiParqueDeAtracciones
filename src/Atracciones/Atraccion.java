@@ -2,7 +2,7 @@ package Atracciones;
 
 import Gente.Cliente;
 import Gente.Empleado;
-import Gente.EnumEmpleado;
+import Gente.EnumTipoEmpleado;
 
 import java.util.ArrayList;
 
