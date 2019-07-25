@@ -1,5 +1,6 @@
 package Controladores;
 
+import Gente.Cliente;
 import Gestion.Entrada;
 import Gestion.EntradaAniversario;
 
@@ -15,7 +16,7 @@ public class ControladorEntradaAniversario {
     public ControladorEntradaAniversario() {
     }
 
-    public EntradaAniversario crearEntrada(GregorianCalendar fechaHoraHoy) {
+    public EntradaAniversario crearEntrada(Cliente cliente, GregorianCalendar fechaHoraHoy) {
         
         ControladorEntrada controladorEntrada = new ControladorEntrada();
         
