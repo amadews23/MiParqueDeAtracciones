@@ -14,7 +14,7 @@ public class ControladorEntradaLaborable {
 
     public ControladorEntradaLaborable() {
     }
-    //Antes de crear la entrada se comprobará el horario
+    //Antes de crear la entrada se comprobará que es laborable
     public EntradaLaborable crearEntrada( GregorianCalendar fechaHoraHoy) {
                  
         ControladorEntrada controladorEntrada = new ControladorEntrada();
