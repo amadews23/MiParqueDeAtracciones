@@ -163,7 +163,7 @@ public class ControladorPrincipal {
         int nEmpleado = 0;
         int nAtraccion = 0;
         
-                do { opcion = Varios.pedirOpcion();
+        do { opcion = Varios.pedirOpcion();
         
             switch (opcion) {
                 case 1:
@@ -172,7 +172,7 @@ public class ControladorPrincipal {
                     mostrarEmpleados(EnumTipoEmpleado.ATENCION);
                     System.out.println("\nSeleccione el número de empleado");
 
-                    try {
+                        try {
                         nEmpleado = Varios.pedirOpcion();
                         Empleado empleado;
                         empleado = listaObjetos.getListaEmpleadosAtencion().get(nEmpleado);
@@ -264,7 +264,8 @@ public class ControladorPrincipal {
                         mostrarAtraccionesDisponibles(EnumTipoEmpleado.RESPONSABLE);  
                         System.out.println("\n Seleccione la atraccion");
                         nAtraccion = Varios.pedirOpcion();
-                        if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosResponsables().size() >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosResponsables()){
+                        if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosResponsables().size() 
+                                >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosResponsables()) {
                             System.out.println("No hay puestos disponibles");
                         } else {
                             controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
@@ -277,7 +278,7 @@ public class ControladorPrincipal {
                     break;     
                 case 5:
                     System.out.println("Vamos al menú principal...");
-                    break;                    
+                    break;                
                 default:
                     System.out.println("Seleccione una opción de las del Menú.");
                     break;

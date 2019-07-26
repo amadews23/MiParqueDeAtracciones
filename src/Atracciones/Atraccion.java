@@ -144,7 +144,25 @@ public class Atraccion {
     public void setTipoAtraccion(EnumTipoAtraccion tipoAtraccion) {
         this.tipoAtraccion = tipoAtraccion;
     }
-    
+
+     public void anyadirEmpleado(Empleado empleado) {
+        
+        switch (empleado.getTipoEmpleado()) {
+                case ATENCION:
+                    getListaEmpleadosAtenciones().add(empleado);
+                    break;
+                case AYUDANTE:
+                    getListaEmpleadosAyudantes().add(empleado);
+                    break;
+                case RELACIONES:
+                    getListaEmpleadosRelaciones().add(empleado); 
+                    break;
+                case RESPONSABLE:
+                    getListaEmpleadosResponsables().add(empleado);
+                    break;
+        }     
+
+    }   
     
     @Override
     public String toString() {

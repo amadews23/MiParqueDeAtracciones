@@ -85,7 +85,7 @@ public class Menu {
                     menuDarDeBajaAtraccion();
                     break;
                 case 4:
-                    //controladorPrincipal.asignarEmpleadoAtraccion();
+                    controladorPrincipal.asignarEmpleadoAtraccion();
                     break;         
                 case 5:
                     //controladorPrincipal.desasignarEmpleadoAtraccion();
