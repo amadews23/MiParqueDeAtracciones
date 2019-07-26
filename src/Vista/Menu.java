@@ -146,27 +146,22 @@ public class Menu {
         
             switch (opcion) {
                 case 1:
-                    //System.out.println(listaObjetos.getListaEntradasGeneral());
                     controladorPrincipal.mostrarEntradasGeneral();   
                     System.out.println("\n");
                     break;
                 case 2:
-                    //System.out.println(listaObjetos.getListaEntradasLaborable());
                     controladorPrincipal.mostrarEntradasLaboral();
                     System.out.println("\n");                    
                     break;
                 case 3:
-                    //System.out.println(listaObjetos.getListaEntradasTarde());
                     controladorPrincipal.mostrarEntradasTarde();
                     System.out.println("\n");                    
                     break;
                 case 4:
-                    //System.out.println(listaObjetos.getListaEntradasAniversario());
                     controladorPrincipal.mostrarEntradasAniversario();
                     System.out.println("\n");                    
                     break;
                 case 5:
-                    //System.out.println(listaObjetos.getListaEntradasFamilia());
                     controladorPrincipal.mostrarEntradasFamilia();
                     System.out.println("\n");                    
                     break;                    
