@@ -2,12 +2,13 @@ package Vista;
 
 import Utilidades.Varios;
 import Controladores.ControladorPrincipal;
+import Gente.EnumTipoEmpleado;
 import Gestion.ListaObjetos;
 
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/25
+ * @version 1.10 2019/7/26
  */
  
 public class Menu {
@@ -66,7 +67,7 @@ public class Menu {
         System.out.println("-----------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
         System.out.println("1- Dar de alta una nueva atracción");
-        System.out.println("2- Mostrar la lista de todas las atracciones");
+        System.out.println("2- Mostrar la lista de todas las atracciones");// también por tipo?
         System.out.println("3- Dar de baja una atracción");   
         System.out.println("4- Asignar un empleado a una atraccion");
         System.out.println("5- Dar de baja un empleado en una atracción");
@@ -76,13 +77,13 @@ public class Menu {
         
             switch (opcion) {
                 case 1:
-                    //controladorPrincipal.insertarAtraccion();
+                    controladorPrincipal.insertarAtraccion();
                     break;
                 case 2:
-                    //controladorPrincipal.listarAtracciones();
+                    controladorPrincipal.listarAtracciones();
                     break;
                 case 3:
-                    //controladorPrincipal.darDeBajaAtraccion();
+                    menuDarDeBajaAtraccion();
                     break;
                 case 4:
                     //controladorPrincipal.asignarEmpleadoAtraccion();
@@ -100,6 +101,56 @@ public class Menu {
         } while (opcion < 1 || opcion > 6);    
 
     }
+    
+    private void menuDarDeBajaAtraccion () {
+     
+        int nAtraccion = 0;
+        int confirmacion = 0;
+        System.out.println("--------------------------"); 
+        System.out.println("Menú dar de baja Atracción"); 
+        System.out.println("--------------------------\n");        
+        System.out.println("Lista de Atracciones");
+        System.out.println("--------------------\n");        
+        controladorPrincipal.mostrarAtracciones();
+        System.out.println("Seleccione el Número de Atracción que quiere dar de baja\n");
+        nAtraccion = Varios.pedirOpcion();
+        try {
+            
+            do {
+                System.out.println("Confirma que desea eliminar, pulse 1 (Si) o 2 (No)");
+                confirmacion = Varios.pedirOpcion();
+            } while (confirmacion < 1 || confirmacion > 2);
+                if (confirmacion == 1) {
+                    controladorPrincipal.quitarAtraccion(nAtraccion);
+                    System.out.println("Atracción eliminada con exito");
+                } else {
+                    System.out.println("Eliminación cancelada");
+                }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("ERROR: No ha elejido un número válido de Atracción");
+        }
+   
+    }
+    
+    private void menuEmpleadoAtraccion() {
+        
+        System.out.println("Seleccione una de las siguientes opciones:");
+        System.out.println("1- Empleado Atención al Cliente");
+        System.out.println("2- Empleados Ayudante de Atracción");
+        System.out.println("3- Empleado Relaciones Públicas");
+        System.out.println("4- Empleado Responsable de Atracción");
+        System.out.println("6- Volver atrás\n");
+    }
+    private void menuAsignarEmpleadoAtraccion() {
+            
+        System.out.println("----------------------------------"); 
+        System.out.println("Menú Asignar Empleado a Atracción"); 
+        System.out.println("----------------------------------\n");
+        menuEmpleadoAtraccion();
+
+    
+    }
+    
     private void menuEntradas() {
         int opcion = 0;
         System.out.println("--------------"); 
