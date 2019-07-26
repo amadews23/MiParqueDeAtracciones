@@ -2,7 +2,6 @@ package Vista;
 
 import Utilidades.Varios;
 import Controladores.ControladorPrincipal;
-import Gente.EnumTipoEmpleado;
 import Gestion.ListaObjetos;
 
 /**
