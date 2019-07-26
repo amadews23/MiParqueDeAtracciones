@@ -71,7 +71,5 @@ public class ControladorPersona {
         return persona;
         
         
-    }
-    
- 
+    } 
 }
