@@ -301,7 +301,7 @@ public class Apertura {
         //ENTRADAS ANIVERSARIO
         GregorianCalendar cumpleanyosTolo = new GregorianCalendar(2019,5,30);        
         //EntradaAniversario  ADULTO  
-        Cliente cliente11 = new Cliente(178,false,false,false,false,"Bartolomé","Vich Lozano",30,6,1979);
+        Cliente cliente11 = new Cliente(178,false,false,false,false,"Bartolomé","Vich",30,6,1979);
         EntradaAniversario entradaAniversario1 = new EntradaAniversario(cumpleanyosTolo, cliente11, true);
         listaObjetos.anyadirEntrada(entradaAniversario1);
         GregorianCalendar cumpleanyosDaniela = new GregorianCalendar(2019,10,13);        
