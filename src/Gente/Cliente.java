@@ -2,7 +2,7 @@ package Gente;
 
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
-//import static Utilidades.Calculos.calcularEdad;
+
 
 /**
  *
