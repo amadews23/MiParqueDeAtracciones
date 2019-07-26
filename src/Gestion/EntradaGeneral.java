@@ -85,21 +85,7 @@ public class EntradaGeneral extends Entrada {
         this.esDesempleado = esDesempleado;
     }
 
-    public GregorianCalendar getFechaHoraEntrada() {
-        return fechaHoraEntrada;
-    }
-
-    public void setFechaHoraEntrada(GregorianCalendar fechaHoraEntrada) {
-        this.fechaHoraEntrada = fechaHoraEntrada;
-    }
-
-    public boolean isEsVip() {
-        return esVip;
-    }
-
-    public void setEsVip(boolean esVip) {
-        this.esVip = esVip;
-    }
+  
 
     public EnumTemporadaPrecio getTipoTemporada() {
         return tipoTemporada;
