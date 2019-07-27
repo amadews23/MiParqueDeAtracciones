@@ -85,7 +85,7 @@ public class Menu {
                     menuDarDeBajaAtraccion();
                     break;
                 case 4:
-                    controladorPrincipal.asignarEmpleadoAtraccion();
+                    menuEmpleadoAtraccion();
                     break;         
                 case 5:
                     //controladorPrincipal.desasignarEmpleadoAtraccion();
@@ -139,6 +139,7 @@ public class Menu {
         System.out.println("3- Empleado Relaciones Públicas");
         System.out.println("4- Empleado Responsable de Atracción");
         System.out.println("6- Volver atrás\n");
+        controladorPrincipal.asignarEmpleadoAtraccion();
     }
     private void menuAsignarEmpleadoAtraccion() {
             
