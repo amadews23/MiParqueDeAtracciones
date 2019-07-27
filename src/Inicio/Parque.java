@@ -6,7 +6,7 @@ import Vista.Menu;
 
 
 /**
- *1
+ *
  * @author Bartolome Vich Lozano
  * @version 1.10 2019/7/27
  */
