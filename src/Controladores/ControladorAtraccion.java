@@ -66,6 +66,72 @@ public class ControladorAtraccion {
     
     return atraccion;
     }     
+    
+    public boolean mostrarEmpleados(EnumTipoEmpleado tipoEmpleado, Atraccion atraccion) {
+        
+        if (tipoEmpleado == EnumTipoEmpleado.ATENCION) {
+            if ( atraccion.getListaEmpleadosAtenciones().isEmpty()) {
+                System.out.println("No hay trabajadores en el puesto "
+                        + tipoEmpleado.getNombreEmpleo()+ " para la Atracción " 
+                        + atraccion.getNombreAtraccion() +"\n");
+                return false;
+            } else {
+                for (int i = 0; i < atraccion.getListaEmpleadosAtenciones().size(); i++) {
+                    System.out.println(i + "- " + atraccion.getListaEmpleadosAtenciones().get(i).getNombre() 
+                                    + " " + atraccion.getListaEmpleadosAtenciones().get(i).getApellidos() 
+                                    + " dni: " + atraccion.getListaEmpleadosAtenciones().get(i).getDni());
+                }
+                return true;
+            }
+        }
+        if (tipoEmpleado == EnumTipoEmpleado.AYUDANTE) {
+            if ( atraccion.getListaEmpleadosAyudantes().isEmpty()) {
+                System.out.println("No hay trabajadores en el puesto "
+                        + tipoEmpleado.getNombreEmpleo()+ " para la Atracción " 
+                        + atraccion.getNombreAtraccion() +"\n");
+                return false;
+            } else {
+                for (int i = 0; i < atraccion.getListaEmpleadosAyudantes().size();i++) {
+                    System.out.println(i+ "- " + atraccion.getListaEmpleadosAyudantes().get(i).getNombre() 
+                                    + " " + atraccion.getListaEmpleadosAyudantes().get(i).getApellidos() 
+                                    + " dni: " + atraccion.getListaEmpleadosAyudantes().get(i).getDni());
+                }
+                return true;
+            }    
+        }    
+        if (tipoEmpleado == EnumTipoEmpleado.RELACIONES) {
+            if ( atraccion.getListaEmpleadosRelaciones().isEmpty()) {
+                System.out.println("No hay trabajadores en el puesto "
+                        + tipoEmpleado.getNombreEmpleo()+ " para la Atracción " 
+                        + atraccion.getNombreAtraccion() +"\n");
+                return false;
+            } else {            
+                for (int i = 0; i < atraccion.getListaEmpleadosRelaciones().size();i++) {
+                    System.out.println(i+ "- " + atraccion.getListaEmpleadosRelaciones().get(i).getNombre() 
+                                + " " + atraccion.getListaEmpleadosRelaciones().get(i).getApellidos()         
+                                + " dni: " + atraccion.getListaEmpleadosRelaciones().get(i).getDni());
+                }
+                return true;                
+            }    
+        }    
+        if (tipoEmpleado == EnumTipoEmpleado.RESPONSABLE) {
+            if ( atraccion.getListaEmpleadosResponsables().isEmpty()) {
+                System.out.println("No hay trabajadores en el puesto "
+                        + tipoEmpleado.getNombreEmpleo()+ " para la Atracción " 
+                        + atraccion.getNombreAtraccion() +"\n");
+                return false;
+            } else {              
+                for (int i = 0; i < atraccion.getListaEmpleadosResponsables().size();i++) {
+                    System.out.println(i+ "- " + atraccion.getListaEmpleadosResponsables().get(i).getNombre() 
+                                    + " " + atraccion.getListaEmpleadosResponsables().get(i).getApellidos() 
+                                    + " dni: " + atraccion.getListaEmpleadosResponsables().get(i).getDni());
+                }
+                return true;
+            }    
+        }    
+        return false;
+    }
+    
     public void anyadirEmpleado(Atraccion atraccion, 
                                 Empleado empleado) {
         
@@ -85,6 +151,8 @@ public class ControladorAtraccion {
         }     
 
     }
+    
+    
     
     public void quitarEmpleado(Atraccion atraccion,
                                EnumTipoEmpleado tipoEmpleado, 
