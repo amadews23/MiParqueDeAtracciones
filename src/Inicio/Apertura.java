@@ -1,6 +1,5 @@
 package Inicio;
 
-
 import Atracciones.Atraccion;
 import Atracciones.EnumTipoAtraccion;
 import Gente.Cliente;
@@ -13,8 +12,6 @@ import Gestion.EntradaLaborable;
 import Gestion.EntradaTarde;
 import Gestion.ListaObjetos;
 import java.util.GregorianCalendar;
-
-
 
 /**
  *
