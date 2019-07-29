@@ -286,6 +286,47 @@ public class ControladorPrincipal {
         } while (opcion < 1 || opcion > 5);  
     }
     
+    public void desaignarEmpleadoAtraccion() {
+        int opcion = 0;
+        int nEmpleado = 0;
+        int nTipoEmpleado = 0;
+        int nAtraccion = 0;
+        int totalTiposEmpleados = 0;
+        ArrayList<EnumTipoEmpleado> arrayTipoEmpleados = new ArrayList<>();
+        for (EnumTipoEmpleado tiposEmpleados : EnumTipoEmpleado.values()) {
+            arrayTipoEmpleados.add(tiposEmpleados);
+            totalTiposEmpleados++;
+        } 
+        mostrarAtracciones();
+        System.out.println("\n Seleccione el Número de Atracción en la que quiere dar de baja el Trabajador\n");
+        nAtraccion = Varios.pedirOpcion();
+
+        do { 
+            System.out.println("\n Seleccione el tipo de Trabajador que quiere dar de baja en Atracción\n");       
+            menuListaTiposEmpleados();
+            nTipoEmpleado = Varios.pedirOpcion();
+        }   while (nTipoEmpleado > totalTiposEmpleados || nTipoEmpleado < 0);
+
+        System.out.println("Lista de Trabajadores");  
+        System.out.println("---------------------\n"); 
+        
+        try {
+            if ( controladorAtraccion.mostrarEmpleados(arrayTipoEmpleados.get(nTipoEmpleado-1), 
+                                                       listaObjetos.getListaAtracciones().get(nAtraccion)
+            ) == true) {
+                System.out.println("Seleccione el número de trabajador de la lista\n");                 
+                nEmpleado = Varios.pedirOpcion();
+                controladorAtraccion.quitarEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion), 
+                                                    arrayTipoEmpleados.get(nTipoEmpleado-1), 
+                                                    nEmpleado );
+                
+                System.out.println("El Empleado ha sido dado de baja correctamente en la Atracción\n" );
+            }
+                 
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("ERROR: No es un número correcto\n");                  
+        }        
+    }
     private boolean preguntarSonUstedesFamilia() {
         int seleccion = 0;
         //Preguntamos si cumplen para poder ofrecer la entrada Familiar.
@@ -578,6 +619,19 @@ public class ControladorPrincipal {
         } 
     } 
     
+    private void menuListaTiposEmpleados() {
+        
+            System.out.println("-------------------"); 
+            System.out.println("Listas de Empleados"); 
+            System.out.println("-------------------\n");
+            System.out.println("Seleccione una de las siguientes opciones:");
+            System.out.println("1- Ver lista de Empleados Atención al Cliente");
+            System.out.println("2- Ver lista de Empleados Ayudantes de Atracción");
+            System.out.println("3- Ver lista de Empleados Relaciones Públicas");
+            System.out.println("4- Ver lista de Empleados Responsables de Atracción");
+            System.out.println("5- Ver lista de Todos los Empleados");
+            System.out.println("6- Volver atrás");        
+    }
     public void mostrarEmpleadoAtraccion() {
         
         int nAtraccion = 0; 
@@ -593,16 +647,7 @@ public class ControladorPrincipal {
                 
             } while (nAtraccion < 0 || nAtraccion > listaObjetos.getListaAtracciones().size());
             
-            System.out.println("-------------------"); 
-            System.out.println("Listas de Empleados"); 
-            System.out.println("-------------------\n");
-            System.out.println("Seleccione una de las siguientes opciones:");
-            System.out.println("1- Ver lista de Empleados Atención al Cliente");
-            System.out.println("2- Ver lista de Empleados Ayudantes de Atracción");
-            System.out.println("3- Ver lista de Empleados Relaciones Públicas");
-            System.out.println("4- Ver lista de Empleados Responsables de Atracción");
-            System.out.println("5- Ver lista de Todos los Empleados");
-            System.out.println("6- Volver atrás");
+            menuListaTiposEmpleados();
             
             do {
                 opcion = Varios.pedirOpcion();
