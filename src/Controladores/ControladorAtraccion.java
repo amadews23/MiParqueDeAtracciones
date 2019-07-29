@@ -12,7 +12,7 @@ import java.util.Scanner;
  * En esta clase están las operaciones a realizar sobre atracciones
  * 
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/21
+ * @version 1.10 2019/7/29
  */
 public class ControladorAtraccion {
     
