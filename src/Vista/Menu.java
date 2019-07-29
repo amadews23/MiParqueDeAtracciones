@@ -7,7 +7,7 @@ import Gestion.ListaObjetos;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/26
+ * @version 1.10 2019/7/29
  */
  
 public class Menu {
