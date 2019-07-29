@@ -90,11 +90,10 @@ public class Menu {
                     menuEmpleadoAtraccion();
                     break;         
                 case 5:
-                    //controladorPrincipal.desasignarEmpleadoAtraccion();
+                    menuDarBajaEmpleado();
                     break; 
                 case 6:
                     menuMostrarEmpleadoAtraccion();
-                    //controladorPrincipal.desasignarEmpleadoAtraccion();
                     break;                     
                 case 7:
                     System.out.println("Vamos al menú principal...");
@@ -156,6 +155,16 @@ public class Menu {
         menuEmpleadoAtraccion();
 
     
+    }
+    
+    private void menuDarBajaEmpleado() {
+        System.out.println("--------------------------------------"); 
+        System.out.println("Menú dar de baja Empleado en Atracción"); 
+        System.out.println("--------------------------------------\n");
+        System.out.println("Lista de Atracciones");  
+        System.out.println("--------------------\n");  
+        controladorPrincipal.desaignarEmpleadoAtraccion();
+        
     }
     
     private void menuMostrarEmpleadoAtraccion() {
@@ -288,6 +297,7 @@ public class Menu {
         System.out.println("6- Volver atrás");
     
     }
+    
     private void seleccionarListarEmpleados() {
         int opcion = 0;
         do { 
