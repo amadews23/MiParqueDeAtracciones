@@ -72,7 +72,7 @@ public class ControladorPrincipal {
         System.out.println(listaObjetos.getListaAtracciones());
     }
     
-        //lista simple para eliminar o modificar
+    //lista simple para eliminar o modificar
     public void mostrarAtracciones() {
         
         for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
@@ -119,6 +119,7 @@ public class ControladorPrincipal {
             }
         }          
     }
+    
     //lista simple para eliminar o modificar
     private void mostrarAtraccionesDisponibles(EnumTipoEmpleado tipoEmpleado) {
 
@@ -154,8 +155,7 @@ public class ControladorPrincipal {
                 }   
             }
         }
-    }
-    
+    } 
     
     public void asignarEmpleadoAtraccion() {
         
@@ -341,9 +341,6 @@ public class ControladorPrincipal {
     }
     
     private ArrayList <String> crearListaEntradas() {
-               
-        //boolean festivoLaboral = false;
-        //boolean familia = false;
         
         //Creamos la lista de las entradas que se pueden vender en el dia de hoy.
         ArrayList <String> listaEntradasPosibles = new ArrayList<>();
@@ -581,10 +578,69 @@ public class ControladorPrincipal {
         } 
     } 
     
+    public void mostrarEmpleadoAtraccion() {
+        
+        int nAtraccion = 0; 
+        int opcion = 0;
+        mostrarAtracciones();
+        System.out.println("Seleccione el Número de Atracción que quiere ver sus empleados\n");
+        
+        try {
+            
+            do {
+  
+                nAtraccion = Varios.pedirOpcion();
+                
+            } while (nAtraccion < 0 || nAtraccion > listaObjetos.getListaAtracciones().size());
+            
+            System.out.println("-------------------"); 
+            System.out.println("Listas de Empleados"); 
+            System.out.println("-------------------\n");
+            System.out.println("Seleccione una de las siguientes opciones:");
+            System.out.println("1- Ver lista de Empleados Atención al Cliente");
+            System.out.println("2- Ver lista de Empleados Ayudantes de Atracción");
+            System.out.println("3- Ver lista de Empleados Relaciones Públicas");
+            System.out.println("4- Ver lista de Empleados Responsables de Atracción");
+            System.out.println("5- Ver lista de Todos los Empleados");
+            System.out.println("6- Volver atrás");
+            
+            do {
+                opcion = Varios.pedirOpcion();
+                switch (opcion) {
+                    case 1:
+                        mostrarListaEmpleadosAtencion(listaObjetos.getListaAtracciones().get(nAtraccion));
+                        break;
+                    case 2:
+                        mostrarListaEmpleadosAyudantes(listaObjetos.getListaAtracciones().get(nAtraccion));
+                        break;
+                    case 3:
+                        mostrarListaEmpleadosRelaciones(listaObjetos.getListaAtracciones().get(nAtraccion));
+                        break;
+                    case 4:
+                        mostrarListaEmpleadosResponsables(listaObjetos.getListaAtracciones().get(nAtraccion));  
+                        break;
+                    case 5:
+                        mostrarListaEmpleados(listaObjetos.getListaAtracciones().get(nAtraccion));
+                }
+                
+                
+            } while (opcion < 1 || opcion > 6);
+            
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("ERROR: No ha elejido un número válido de Atracción");
+        }
+    }
+    
     public void mostrarListaEmpleadosAtencion() {
         System.out.println("Lista de Empleados de Atención al Cliente:");
         System.out.println("------------------------------------------\n");       
         System.out.println(listaObjetos.getListaEmpleadosAtencion()); 
+    }
+        
+    private void mostrarListaEmpleadosAtencion( Atraccion atraccion) {
+        System.out.println("Lista de Empleados de Atención al Cliente:");
+        System.out.println("------------------------------------------\n");       
+        System.out.println(atraccion.getListaEmpleadosAtenciones()); 
     }
     
     public void mostrarListaEmpleadosAyudantes() {
@@ -593,10 +649,22 @@ public class ControladorPrincipal {
         System.out.println(listaObjetos.getListaEmpleadosAyudante());
     }
     
+    private void mostrarListaEmpleadosAyudantes( Atraccion atraccion) {
+        System.out.println("Lista de Empleados de Ayudantes de Atracción:");
+        System.out.println("---------------------------------------------\n");                    
+        System.out.println(atraccion.getListaEmpleadosAyudantes());
+    }
+    
     public void mostrarListaEmpleadosRelaciones() {
         System.out.println("Lista de Empleados de Relaciones Públicas:");
         System.out.println("------------------------------------------\n");                    
         System.out.println(listaObjetos.getListaEmpleadosRelaciones());
+    }
+    
+    private void mostrarListaEmpleadosRelaciones( Atraccion atraccion) {
+        System.out.println("Lista de Empleados de Relaciones Públicas:");
+        System.out.println("------------------------------------------\n");                    
+        System.out.println(atraccion.getListaEmpleadosRelaciones());
     }
     
     public void mostrarListaEmpleadosResponsables() {
@@ -605,6 +673,12 @@ public class ControladorPrincipal {
         System.out.println(listaObjetos.getListaEmpleadosResponsable());
     }
     
+    private void mostrarListaEmpleadosResponsables(Atraccion atraccion) {       
+        System.out.println("Lista de Empleados de Responsables de Atracción:");
+        System.out.println("------------------------------------------------\n");                    
+        System.out.println(atraccion.getListaEmpleadosResponsables());
+    }  
+    
     public void mostrarListaEmpleados() {
         System.out.println("Lista todos los Empleados:");
         System.out.println("--------------------------\n");
@@ -612,6 +686,15 @@ public class ControladorPrincipal {
         System.out.println(listaObjetos.getListaEmpleadosAyudante());
         System.out.println(listaObjetos.getListaEmpleadosRelaciones());                    
         System.out.println(listaObjetos.getListaEmpleadosResponsable());
+    }
+    
+    private void mostrarListaEmpleados(Atraccion atraccion) {
+        System.out.println("Lista todos los Empleados:");
+        System.out.println("--------------------------\n");
+        System.out.println(atraccion.getListaEmpleadosAtenciones()); 
+        System.out.println(atraccion.getListaEmpleadosAyudantes());
+        System.out.println(atraccion.getListaEmpleadosRelaciones());                    
+        System.out.println(atraccion.getListaEmpleadosResponsables());
     }
 
     public void crearEmpleado() {
