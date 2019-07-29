@@ -299,13 +299,19 @@ public class Apertura {
         listaObjetos.anyadirEntrada(entradaFamilia4);
 
         //ENTRADAS ANIVERSARIO
+        //EntradaAniversario  ADULTOs
+        GregorianCalendar cumpleanyosNerea = new GregorianCalendar(2019,0,3);
+        Cliente cliente110 = new Cliente(168,false,false,false,false,"Nerea","Barajas",3,1,1984);
+        EntradaAniversario entradaAniversario0 = new EntradaAniversario(cumpleanyosNerea, cliente110, true);
+        listaObjetos.anyadirEntrada(entradaAniversario0);
+        
         GregorianCalendar cumpleanyosTolo = new GregorianCalendar(2019,5,30);        
-        //EntradaAniversario  ADULTO  
         Cliente cliente11 = new Cliente(178,false,false,false,false,"Bartolomé","Vich",30,6,1979);
         EntradaAniversario entradaAniversario1 = new EntradaAniversario(cumpleanyosTolo, cliente11, true);
         listaObjetos.anyadirEntrada(entradaAniversario1);
-        GregorianCalendar cumpleanyosDaniela = new GregorianCalendar(2019,10,13);        
+        
         //EntradaAniversario  NINYO 
+        GregorianCalendar cumpleanyosDaniela = new GregorianCalendar(2019,10,13);        
         Cliente cliente12 = new Cliente(120,false,false,false,false,"Daniela","Vich",13,11,2015);
         EntradaAniversario entradaAniversario2 = new EntradaAniversario(cumpleanyosDaniela, cliente12, true);
         listaObjetos.anyadirEntrada(entradaAniversario2);
@@ -326,13 +332,14 @@ public class Apertura {
         Cliente cliente15 = new Cliente(165,false,false,true,false,"Catalina","Mesa",2,3,1981);
         EntradaTarde entradaTarde1 = new EntradaTarde(temporadaAlta2, cliente15, true);
         listaObjetos.anyadirEntrada(entradaTarde1);
+        
         //EntradaLaboral TEMPORADA ALTA - ADULTO - CARNET JOVEN 
         Cliente cliente16 = new Cliente(165,false,false,true,false,"Catalina","Bosch",2,3,1977);
         EntradaLaborable entradaTarde2 = new EntradaLaborable(temporadaAlta2, cliente16, false);
 
         //ENTRADAS ANIVERSARIO
-        GregorianCalendar cumpleanyosJaume = new GregorianCalendar(2019,5,30);        
-        //EntradaAniversario  ADULTO  
+        //EntradaAniversario  ADULTO 
+        GregorianCalendar cumpleanyosJaume = new GregorianCalendar(2019,5,29);        
         Cliente cliente17 = new Cliente(178,false,false,false,false,"Jaume","Vila",29,6,1979);
         EntradaAniversario entradaAniversario3 = new EntradaAniversario(cumpleanyosJaume, cliente17, true);
         listaObjetos.anyadirEntrada(entradaAniversario3);        
