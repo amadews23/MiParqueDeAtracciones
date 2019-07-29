@@ -4,7 +4,6 @@ import Vista.Menu;
 //import Gestion.ListaObjetos;
 
 
-
 /**
  *
  * @author Bartolome Vich Lozano
@@ -22,8 +21,7 @@ public class Parque {
         Menu menu = new Menu(apertura.iniciarActividad());
         
         //ListaObjetos listaObjetos = new ListaObjetos();  
-        //Menu menu = new Menu(listaObjetos);
-          
+        //Menu menu = new Menu(listaObjetos);        
  
         menu.menuPrincipal();
 
