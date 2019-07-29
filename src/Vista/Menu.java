@@ -59,6 +59,7 @@ public class Menu {
         } while (seleccion != 6);
     
     }
+    
     private void menuAtracciones() {
         int opcion = 0;
         System.out.println("-----------------"); 
@@ -70,7 +71,8 @@ public class Menu {
         System.out.println("3- Dar de baja una atracción");   
         System.out.println("4- Asignar un empleado a una atraccion");
         System.out.println("5- Dar de baja un empleado en una atracción");
-        System.out.println("6- Volver atrás");
+        System.out.println("6- Mostrar lista de empleados en una atracción");
+        System.out.println("7- Volver atrás");
         
         do { opcion = Varios.pedirOpcion();
         
@@ -89,8 +91,12 @@ public class Menu {
                     break;         
                 case 5:
                     //controladorPrincipal.desasignarEmpleadoAtraccion();
-                    break;                             
+                    break; 
                 case 6:
+                    menuMostrarEmpleadoAtraccion();
+                    //controladorPrincipal.desasignarEmpleadoAtraccion();
+                    break;                     
+                case 7:
                     System.out.println("Vamos al menú principal...");
                     break;                    
                 default:
@@ -141,6 +147,7 @@ public class Menu {
         System.out.println("6- Volver atrás\n");
         controladorPrincipal.asignarEmpleadoAtraccion();
     }
+    
     private void menuAsignarEmpleadoAtraccion() {
             
         System.out.println("----------------------------------"); 
@@ -149,6 +156,16 @@ public class Menu {
         menuEmpleadoAtraccion();
 
     
+    }
+    
+    private void menuMostrarEmpleadoAtraccion() {
+
+        System.out.println("----------------------------------"); 
+        System.out.println("Menú Mostrar Empleados en Atracción"); 
+        System.out.println("----------------------------------\n");  
+        System.out.println("Lista de Atracciones");
+        System.out.println("--------------------\n");        
+        controladorPrincipal.mostrarEmpleadoAtraccion();
     }
     
     private void menuEntradas() {
@@ -245,6 +262,7 @@ public class Menu {
                     break;
                 case 2:
                     menuListarEmpleados();
+                    seleccionarListarEmpleados();
                     break;
                 case 3:
                     System.out.println("Vamos al menú principal...");
@@ -257,7 +275,7 @@ public class Menu {
     } 
     
     private void menuListarEmpleados() {
-        int opcion = 0;
+
         System.out.println("-------------------"); 
         System.out.println("Listas de Empleados"); 
         System.out.println("-------------------\n");
@@ -268,8 +286,12 @@ public class Menu {
         System.out.println("4- Ver lista de Empleados Responsables de Atracción");
         System.out.println("5- Ver lista de Todos los Empleados");
         System.out.println("6- Volver atrás");
-        
-        do { opcion = Varios.pedirOpcion();
+    
+    }
+    private void seleccionarListarEmpleados() {
+        int opcion = 0;
+        do { 
+            opcion = Varios.pedirOpcion();
         
             switch (opcion) {
                 case 1:
