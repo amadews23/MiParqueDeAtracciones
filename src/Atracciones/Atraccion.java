@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/21
+ * @version 1.10 2019/7/31
  */
 public class Atraccion {
    
@@ -170,7 +170,7 @@ public class Atraccion {
         if (esActiva == true) {
             estaActiva = "Si";
         }
-        return "\nNombre de Atraccion: " + nombreAtraccion + " ¿Está activa? " + estaActiva  
+        return "\nAtraccion: " + nombreAtraccion + " ("+ estaActiva + " está activa). " 
                 + "\n" + tipoAtraccion.toString() + "\n";
     }
 
