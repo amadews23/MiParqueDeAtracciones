@@ -61,7 +61,7 @@ public class ControladorPrincipal {
         Atraccion atraccion = controladorAtraccion.crearAtraccion();
         if (atraccion != null) {
             listaObjetos.anyadirAtraccion(atraccion);
-            System.out.println("Atracción creada correctamente");
+            System.out.println("\n Creada correctamente:\n"+atraccion.toString()+"\n");
         }
     }
     
