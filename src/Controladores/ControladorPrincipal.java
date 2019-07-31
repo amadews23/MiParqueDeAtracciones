@@ -75,6 +75,8 @@ public class ControladorPrincipal {
     //lista simple para eliminar o modificar
     public void mostrarAtracciones() {
         
+        System.out.println("Lista de Atracciones");  
+        System.out.println("--------------------\n"); 
         for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
             System.out.println(i+ "- " + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
                     + ", " + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
@@ -158,7 +160,7 @@ public class ControladorPrincipal {
     } 
     
     public void asignarEmpleadoAtraccion() {
-        
+        menuAsignarEmpleadoAtraccion();
         int opcion = 0;
         int nEmpleado = 0;
         int nAtraccion = 0;
@@ -173,29 +175,30 @@ public class ControladorPrincipal {
                     System.out.println("\nSeleccione el número de empleado");
 
                         try {
-                        nEmpleado = Varios.pedirOpcion();
-                        Empleado empleado;
-                        empleado = listaObjetos.getListaEmpleadosAtencion().get(nEmpleado);
-                        System.out.println("\n Lista de atracciones disponibles:");
-                        mostrarAtraccionesDisponibles(EnumTipoEmpleado.ATENCION);  
-                        System.out.println("\n Seleccione la atraccion");
-                        nAtraccion = Varios.pedirOpcion();
+                            nEmpleado = Varios.pedirOpcion();
+                            Empleado empleado;
+                            empleado = listaObjetos.getListaEmpleadosAtencion().get(nEmpleado);
+                            System.out.println("\n Lista de atracciones disponibles:");
+                            mostrarAtraccionesDisponibles(EnumTipoEmpleado.ATENCION);  
+                            System.out.println("\n Seleccione la atraccion");
+                            nAtraccion = Varios.pedirOpcion();
                         
-                        if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosAtenciones().size() 
+                            if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosAtenciones().size() 
                                 >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosAtenciones()) {
                             
-                            System.out.println("No hay puestos disponibles");
-                        } else {
+                                System.out.println("No hay puestos disponibles");
+                            } else {
                             
-                            controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
+                                controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
                                                                  empleado);
                             
-                            System.out.println("El empleado se agregó correctamente");
-                        }
+                                System.out.println("El empleado se agregó correctamente");
+                            }
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println("ERROR: No es un número correcto");                            
                         } 
                     break;
+                    
                 case 2:
                     System.out.println("Empleado Ayudante de Atracción:");
                     System.out.println("---------------------------------------\n");                    
@@ -210,25 +213,29 @@ public class ControladorPrincipal {
                         mostrarAtraccionesDisponibles(EnumTipoEmpleado.AYUDANTE);  
                         System.out.println("\n Seleccione la atraccion");
                         nAtraccion = Varios.pedirOpcion();
+                        
                         if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosAyudantes().size() 
                                 >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosAyudantes()) {
                             
                             System.out.println("No hay puestos disponibles");
+                            
                         } else {
                             controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
                                                                  empleado);
-                            System.out.println("El empleado se agregó correctamente");
+                            System.out.println("El empleado "+ empleado.getNombre()+" se agregó correctamente\n");
                         }
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("ERROR: No es un número correcto");                            
-                        } 
-                    
+                        
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("ERROR: No es un número correcto");                            
+                    } 
                     break;
+                    
                 case 3:
                     System.out.println("Empleado Relaciones Públicas:");
                     System.out.println("-------------------------------------\n");                    
                     mostrarEmpleados(EnumTipoEmpleado.RELACIONES);
                     System.out.println("\nSeleccione el número de empleado");
+                    
                     try {
                         nEmpleado = Varios.pedirOpcion();
                         Empleado empleado;
@@ -237,25 +244,29 @@ public class ControladorPrincipal {
                         mostrarAtraccionesDisponibles(EnumTipoEmpleado.RELACIONES);  
                         System.out.println("\n Seleccione la atraccion");
                         nAtraccion = Varios.pedirOpcion();
+                        
                         if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosRelaciones().size() 
                                 >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosRelaciones()) {
                             
-                            System.out.println("No hay puestos disponibles");          
+                            System.out.println("No hay puestos disponibles"); 
+                            
                         } else {
                             controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
                                                                  empleado);
                             System.out.println("El empleado se agregó correctamente");
-                        }    
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("ERROR: No es un número correcto");                            
+                        }  
+                        
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("ERROR: No es un número correcto");                            
                         } 
                     break;
+                    
                 case 4:
                     System.out.println("Empleado Responsable de Atracción:");
                     System.out.println("-------------------------------------------\n");                    
                     mostrarEmpleados(EnumTipoEmpleado.RESPONSABLE);
                     System.out.println("\nSeleccione el número de empleado");
-                    //Enviamos el empleado a la funcion
+                    
                     try {
                         nEmpleado = Varios.pedirOpcion();
                         Empleado empleado;
@@ -264,18 +275,21 @@ public class ControladorPrincipal {
                         mostrarAtraccionesDisponibles(EnumTipoEmpleado.RESPONSABLE);  
                         System.out.println("\n Seleccione la atraccion");
                         nAtraccion = Varios.pedirOpcion();
+                        
                         if (listaObjetos.getListaAtracciones().get(nAtraccion).getListaEmpleadosResponsables().size() 
                                 >= listaObjetos.getListaAtracciones().get(nAtraccion).getTipoAtraccion().getNumEmpleadosResponsables()) {
                             System.out.println("No hay puestos disponibles");
+                        
                         } else {
                             controladorAtraccion.anyadirEmpleado(listaObjetos.getListaAtracciones().get(nAtraccion),
                                                                  empleado);
-                        System.out.println("El empleado se agregó correctamente");
+                            System.out.println("El empleado se agregó correctamente");
                         }
-                        } catch (IndexOutOfBoundsException e) {
-                            System.out.println("ERROR: No es un número correcto");                            
-                        }                   
-                    break;     
+                    } catch (IndexOutOfBoundsException e) {
+                        System.out.println("ERROR: No es un número correcto");                            
+                    }                   
+                    break;  
+                    
                 case 5:
                     System.out.println("Vamos al menú principal...");
                     break;                
@@ -619,6 +633,17 @@ public class ControladorPrincipal {
         } 
     } 
     
+    private void menuAsignarEmpleadoAtraccion() {
+        System.out.println("----------------------------------"); 
+        System.out.println("Menú Asignar Empleado a Atracción"); 
+        System.out.println("----------------------------------\n");
+        System.out.println("Seleccione uno de los siguientes tipo de empleado:\n");
+        System.out.println("1- Empleado Atención al Cliente");
+        System.out.println("2- Empleados Ayudante de Atracción");
+        System.out.println("3- Empleado Relaciones Públicas");
+        System.out.println("4- Empleado Responsable de Atracción");
+        System.out.println("5- Volver atrás\n");        
+    }
     private void menuListaTiposEmpleados() {
         
             System.out.println("-------------------"); 
