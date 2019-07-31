@@ -61,6 +61,7 @@ public class Menu {
     }
     
     private void menuAtracciones() {
+        
         int opcion = 0;
         System.out.println("-----------------"); 
         System.out.println("Menu Atracciones"); 
@@ -107,32 +108,12 @@ public class Menu {
     }
     
     private void menuDarDeBajaAtraccion () {
-     
-        int nAtraccion = 0;
-        int confirmacion = 0;
+    
         System.out.println("--------------------------"); 
         System.out.println("Menú dar de baja Atracción"); 
         System.out.println("--------------------------\n");        
-        System.out.println("Lista de Atracciones");
-        System.out.println("--------------------\n");        
-        controladorPrincipal.mostrarAtracciones();
-        System.out.println("Seleccione el Número de Atracción que quiere dar de baja\n");
-        nAtraccion = Varios.pedirOpcion();
-        try {
-            
-            do {
-                System.out.println("Confirma que desea eliminar, pulse 1 (Si) o 2 (No)");
-                confirmacion = Varios.pedirOpcion();
-            } while (confirmacion < 1 || confirmacion > 2);
-                if (confirmacion == 1) {
-                    controladorPrincipal.quitarAtraccion(nAtraccion);
-                    System.out.println("Atracción eliminada con exito");
-                } else {
-                    System.out.println("Eliminación cancelada");
-                }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("ERROR: No ha elejido un número válido de Atracción");
-        }
+        controladorPrincipal.darDeBajaAtraccion();
+
    
     }
     
@@ -143,6 +124,7 @@ public class Menu {
     
     
     private void menuDarBajaEmpleado() {
+        
         System.out.println("--------------------------------------"); 
         System.out.println("Menú dar de baja Empleado en Atracción"); 
         System.out.println("--------------------------------------\n");
@@ -159,6 +141,7 @@ public class Menu {
     }
     
     private void menuEntradas() {
+        
         int opcion = 0;
         System.out.println("--------------"); 
         System.out.println("Menú Entradas"); 
@@ -188,6 +171,7 @@ public class Menu {
     }
     
     private void menuMostrarEntradas() {
+        
         int opcion = 0;
         System.out.println("-------------------"); 
         System.out.println("Listas de Entradas"); 
@@ -235,6 +219,7 @@ public class Menu {
     }
 
     private void menuEmpleados() {
+        
         int opcion = 0;
         System.out.println("---------------"); 
         System.out.println("Menú Empleados"); 
@@ -280,6 +265,7 @@ public class Menu {
     }
     
     private void seleccionarListarEmpleados() {
+        
         int opcion = 0;
         do { 
             opcion = Varios.pedirOpcion();
