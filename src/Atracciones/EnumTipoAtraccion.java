@@ -3,7 +3,7 @@ package Atracciones;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/21
+ * @version 1.10 2019/7/31
 
  */
 public enum EnumTipoAtraccion {
