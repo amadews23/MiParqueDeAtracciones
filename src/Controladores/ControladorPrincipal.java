@@ -83,9 +83,29 @@ public class ControladorPrincipal {
         } 
     }
     
-    public void quitarAtraccion( int nAtraccion) {
-        listaObjetos.quitarAtraccion(nAtraccion);
+    public void darDeBajaAtraccion() {
+        int nAtraccion = 0;
+        int confirmacion = 0;
+        mostrarAtracciones();
+        System.out.println("\nSeleccione el Número de Atracción que quiere dar de baja\n");
+        nAtraccion = Varios.pedirOpcion();
+        try {
+            
+            do {
+                System.out.println("Confirma que desea eliminar, pulse 1 (Si) o 2 (No)");
+                confirmacion = Varios.pedirOpcion();
+            } while (confirmacion < 1 || confirmacion > 2);
+                if (confirmacion == 1) {
+                    listaObjetos.quitarAtraccion(nAtraccion);
+                    System.out.println("Atracción eliminada con exito");
+                } else {
+                    System.out.println("Eliminación cancelada");
+                }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("ERROR: No ha elejido un número válido de Atracción");
+        }        
     }
+    
     
     //De la lista de Objetos
     private void mostrarEmpleados (EnumTipoEmpleado tipoEmpleado){
@@ -341,6 +361,7 @@ public class ControladorPrincipal {
             System.out.println("ERROR: No es un número correcto\n");                  
         }        
     }
+    
     private boolean preguntarSonUstedesFamilia() {
         int seleccion = 0;
         //Preguntamos si cumplen para poder ofrecer la entrada Familiar.
