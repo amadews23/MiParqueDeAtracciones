@@ -65,7 +65,7 @@ public class Menu {
         System.out.println("-----------------"); 
         System.out.println("Menu Atracciones"); 
         System.out.println("-----------------\n");
-        System.out.println("Seleccione una de las siguientes opciones:");
+        System.out.println("Seleccione una de las siguientes opciones:\n");
         System.out.println("1- Dar de alta una nueva atracción");
         System.out.println("2- Mostrar la lista de todas las atracciones");// también por tipo?
         System.out.println("3- Dar de baja una atracción");   
@@ -137,32 +137,15 @@ public class Menu {
     }
     
     private void menuEmpleadoAtraccion() {
-        
-        System.out.println("Seleccione una de las siguientes opciones:");
-        System.out.println("1- Empleado Atención al Cliente");
-        System.out.println("2- Empleados Ayudante de Atracción");
-        System.out.println("3- Empleado Relaciones Públicas");
-        System.out.println("4- Empleado Responsable de Atracción");
-        System.out.println("6- Volver atrás\n");
+
         controladorPrincipal.asignarEmpleadoAtraccion();
     }
     
-    private void menuAsignarEmpleadoAtraccion() {
-            
-        System.out.println("----------------------------------"); 
-        System.out.println("Menú Asignar Empleado a Atracción"); 
-        System.out.println("----------------------------------\n");
-        menuEmpleadoAtraccion();
-
-    
-    }
     
     private void menuDarBajaEmpleado() {
         System.out.println("--------------------------------------"); 
         System.out.println("Menú dar de baja Empleado en Atracción"); 
         System.out.println("--------------------------------------\n");
-        System.out.println("Lista de Atracciones");  
-        System.out.println("--------------------\n");  
         controladorPrincipal.desaignarEmpleadoAtraccion();
         
     }
@@ -171,9 +154,7 @@ public class Menu {
 
         System.out.println("----------------------------------"); 
         System.out.println("Menú Mostrar Empleados en Atracción"); 
-        System.out.println("----------------------------------\n");  
-        System.out.println("Lista de Atracciones");
-        System.out.println("--------------------\n");        
+        System.out.println("----------------------------------\n");        
         controladorPrincipal.mostrarEmpleadoAtraccion();
     }
     
