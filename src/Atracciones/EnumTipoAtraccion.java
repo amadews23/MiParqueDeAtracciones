@@ -131,16 +131,16 @@ public enum EnumTipoAtraccion {
             
         }
         return nombreTipotraccion 
-                + "\n - ¿Admite adultos? " + adultos 
-                + ", ¿Admite niños? " + ninyos
+                + "\n -"+ adultos + " admite adultos, "  
+                +  ninyos + " admite niños "
                 + ", Altura mínima: " + alturaMinima
                 + ", Altura máxima: " + alturaMaxima
-                + ", ¿Admite vip? " + vip
-                + "\n,- Personal necesario:"
+                + ", " + vip + " admite vip. " 
+                + "\nPersonal necesario para funcionar:\n"
                 + " Ayudantes: " + numEmpleadosAyudantes 
                 + ", Responsables: " + numEmpleadosResponsables 
                 + ", Atencion al cliente: " + numEmpleadosAtenciones 
-               + ", Relaciones públicas: " + numEmpleadosRelaciones ;
+               + ", Relaciones públicas: " + numEmpleadosRelaciones +".\n" ;
     }
 
     
