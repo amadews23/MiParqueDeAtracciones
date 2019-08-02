@@ -1,8 +1,7 @@
 package Inicio;
 
-import Vista.Menu;
+import Vista.MenuPrincipal;
 //import Gestion.ListaObjetos;
-
 
 /**
  *
@@ -18,10 +17,10 @@ public class Parque {
     public static void main(String[] args) {
         
         Apertura apertura = new Apertura();
-        Menu menu = new Menu(apertura.iniciarActividad());
+        MenuPrincipal menu = new MenuPrincipal(apertura.iniciarActividad());
         
         //ListaObjetos listaObjetos = new ListaObjetos();  
-        //Menu menu = new Menu(listaObjetos);        
+        //Menu menu = new MenuPrincipal(listaObjetos);        
  
         menu.menuPrincipal();
 

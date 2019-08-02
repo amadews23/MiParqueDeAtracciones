@@ -23,10 +23,10 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/7/29
+ * @version 1.10 2019/8/2
  */
 public class ControladorPrincipal {
-    private ListaObjetos listaObjetos;
+    private final ListaObjetos listaObjetos;
     private final ControladorAtraccion controladorAtraccion;
     private final ControladorEntradaGeneral controladorEntradaGeneral;
     private final ControladorEntradaFamilia controladorEntradaFamilia;
@@ -36,7 +36,7 @@ public class ControladorPrincipal {
     private final GregorianCalendar fechaHoraHoy;
     private final ControladorCliente controladorCliente;
     private final ControladorEmpleado controladorEmpleado;
-    private EnumTipoCliente tipoCliente;
+    //private EnumTipoCliente tipoCliente;
 
     
     public ControladorPrincipal(ListaObjetos listaObjetos) {
@@ -105,7 +105,7 @@ public class ControladorPrincipal {
             System.out.println("ERROR: No ha elejido un número válido de Atracción");
         }        
     }
-    
+   
     
     //De la lista de Objetos
     private void mostrarEmpleados (EnumTipoEmpleado tipoEmpleado){
@@ -665,6 +665,7 @@ public class ControladorPrincipal {
         System.out.println("4- Empleado Responsable de Atracción");
         System.out.println("5- Volver atrás\n");        
     }
+    
     private void menuListaTiposEmpleados() {
         
             System.out.println("-------------------"); 
@@ -678,6 +679,7 @@ public class ControladorPrincipal {
             System.out.println("5- Ver lista de Todos los Empleados");
             System.out.println("6- Volver atrás");        
     }
+    
     public void mostrarEmpleadoAtraccion() {
         
         int nAtraccion = 0; 
@@ -693,7 +695,7 @@ public class ControladorPrincipal {
                 
             } while (nAtraccion < 0 || nAtraccion > listaObjetos.getListaAtracciones().size());
             
-            menuListaTiposEmpleados();
+            menuListaTiposEmpleados(); //mostramos las opciones
             
             do {
                 opcion = Varios.pedirOpcion();
@@ -796,4 +798,5 @@ public class ControladorPrincipal {
         }
     }
     
+
 }
