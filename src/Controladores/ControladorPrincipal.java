@@ -10,8 +10,6 @@ import Gestion.EntradaFamilia;
 import Gestion.EntradaLaborable;
 import Gestion.EntradaTarde;
 import Gestion.EntradaAniversario;
-import Gestion.EnumFestivos;
-import Gestion.EnumHorario;
 import Gestion.EnumTipoCliente;
 import Gestion.ListaObjetos;
 import Utilidades.Varios;
@@ -105,8 +103,7 @@ public class ControladorPrincipal {
             System.out.println("ERROR: No ha elejido un número válido de Atracción");
         }        
     }
-   
-    
+       
     //De la lista de Objetos
     private void mostrarEmpleados (EnumTipoEmpleado tipoEmpleado){
         System.out.println("Lista de Empleados");
