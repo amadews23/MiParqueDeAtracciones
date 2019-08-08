@@ -16,6 +16,10 @@ public class LineaInforme {
         this.numero = 0;
     }
 
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -27,6 +31,10 @@ public class LineaInforme {
 
     public void sumar() {
         this.numero++;
+    }
+    
+    public void sumarNumero(int numero) {
+        this.numero = this.numero + numero;
     }
     
 }
