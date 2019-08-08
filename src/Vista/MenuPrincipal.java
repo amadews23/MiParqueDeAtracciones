@@ -16,12 +16,14 @@ public class MenuPrincipal {
     private final MenuAtracciones menuAtracciones;
     private final MenuEntradas menuEntradas;
     private final MenuEmpleados menuEmpleados;
+    private final MenuInformes menuInformes;
     
     
     public MenuPrincipal(ListaObjetos listaObjetos) {
         menuAtracciones = new MenuAtracciones(listaObjetos);
         menuEntradas = new MenuEntradas(listaObjetos);
         menuEmpleados = new MenuEmpleados(listaObjetos);
+        menuInformes = new MenuInformes(listaObjetos);
     }
     
     public void menuPrincipal() {
@@ -36,7 +38,7 @@ public class MenuPrincipal {
             System.out.println("1- Gestionar atracciones");
             System.out.println("2- Gestionar entradas");
             System.out.println("3- Gestionar empleados"); 
-            //System.out.println("4- Resúmenes de visitantes y entradas");  
+            System.out.println("4- Resúmenes");  
             //System.out.println("*5- Resúmenes de costes de atracción*");              
             System.out.println("6- SALIR\n");
             seleccion = Varios.pedirOpcion();
@@ -52,7 +54,7 @@ public class MenuPrincipal {
                     menuEmpleados.iniciar();
                     break;
                 case 4:
-                    //menuResumenesVisitantes();
+                    menuInformes.iniciar();
                     break;                    
                 case 6:
                     System.out.println("Saliendo del programa...");

@@ -1,19 +1,28 @@
 package Vista;
 
+import Controladores.ControladorPrincipal;
 import Utilidades.Varios;
+import Gestion.ListaObjetos;
+import Gestion.InformeNumeroVisitantes;
 
 /**
  *
+ * @author Bartolome Vich Lozano/**
+ *
  * @author Bartolome Vich Lozano
  * @version 1.0 2019/8/2
- */
+**/
 
 
-
-public class menuResumenes {
+public class MenuInformes {
     
-    protected menuResumenes() {
+    private final ControladorPrincipal controladorPrincipal;
+    private final ListaObjetos listaObjetos;
+    
+    protected MenuInformes( ListaObjetos listaObjetos) {
         
+        controladorPrincipal = new ControladorPrincipal(listaObjetos);
+        this.listaObjetos = listaObjetos;
     }
     
     protected void iniciar() {
@@ -24,7 +33,7 @@ public class menuResumenes {
         System.out.println("------------------------------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
         System.out.println("1- Número de visitantes");
-        System.out.println("2- Lista de Entradas vendidas");
+        //System.out.println("2- Lista de Entradas vendidas");
         //System.out.println("*3- Número de visitantes en Atracción*");        
         System.out.println("4- Volver atrás");
         
@@ -33,9 +42,10 @@ public class menuResumenes {
             switch (opcion) {
                 case 1:
                     //controladorPrincipal.mostrarNumeroVisitantes();
+                    menuListarResumenes();
                     break;
                 case 2:
-                    menuListarEntradas();
+                    
                     break;
                 case 3:
                     //
@@ -50,26 +60,27 @@ public class menuResumenes {
         } while (opcion < 1 || opcion > 4);          
     }
     
-    private void menuListarEntradas() {
+    private void menuListarResumenes() {
   
         int opcion = 0;
         System.out.println("-------------------"); 
-        System.out.println("Menu listas de Entradas"); 
+        System.out.println("Menu Resumenes"); 
         System.out.println("-------------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
-        System.out.println("1- Ver lista de Entradas General");
-        System.out.println("2- Ver lista de Entradas Laboral");
-        System.out.println("3- Ver lista de Entradas de Tarde");   
-        System.out.println("4- Ver lista de Entradas Aniversario");  
-        System.out.println("5- Ver lista de Entradas Familiares");      
-        System.out.println("6- Volver atrás");
+        System.out.println("1- Ver número visitantes diarios");
+        //System.out.println("2- Ver lista de Entradas Laboral");
+        //System.out.println("3- Ver lista de Entradas de Tarde");   
+        //System.out.println("4- Ver lista de Entradas Aniversario");  
+        //System.out.println("5- Ver lista de Entradas Familiares");      
+        //System.out.println("6- Volver atrás");
         
         do { opcion = Varios.pedirOpcion();
         
             switch (opcion) {
                 case 1:
                     //System.out.println(listaObjetos.getListaEntradasGeneral());
-                    menuListarEntradasGeneral();   
+                    //menuListarNumeroVisitantes();
+                    InformeNumeroVisitantes.informeDiario(listaObjetos);
                     //System.out.println("\n");
                     break;
                 case 2:
@@ -102,18 +113,19 @@ public class menuResumenes {
             }
         } while (opcion < 1 || opcion > 6);
     }
-private void menuListarEntradasGeneral() {
+    
+    private void menuListarNumeroVisitantes() {
   
         int opcion = 0;
         System.out.println("-------------------------------"); 
-        System.out.println("Menu listas de Entradas General"); 
+        System.out.println("Menu Número de Visitantes"); 
         System.out.println("-------------------------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
-        System.out.println("1- Ver todas las entradas vendidas");
-        //System.out.println("2- Ver lista de Entradas Laboral");
-        //System.out.println("3- Ver lista de Entradas de Tarde");   
-        //System.out.println("4- Ver lista de Entradas Aniversario");  
-        //System.out.println("5- Ver lista de Entradas Familiares");      
+        System.out.println("1- Ver visitantes recibidos en un año");
+        System.out.println("2- Ver visitantes recibidos en una semana");
+        System.out.println("3- Ver visitantes recibidos en un mes");   
+        System.out.println("4- Ver visitantes recibidos en un día");  
+        System.out.println("5- Ver todos los visitantes recibidos");      
         System.out.println("6- Volver atrás");
         
         do { opcion = Varios.pedirOpcion();

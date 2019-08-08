@@ -263,6 +263,29 @@ public class Apertura {
         EntradaGeneral entradaGeneral4 = new EntradaGeneral(temporadaBaja, cliente4, true);
         listaObjetos.anyadirEntrada(entradaGeneral4);
         
+        //Temporada Baja 0     
+        GregorianCalendar temporadaBaja0 = new GregorianCalendar(2019,1,19);		
+        //EntradaGeneral TEMPORADA BAJA - NINYO - VIP
+        Cliente cliente01 = new Cliente(100,false,false,false,false,"Pepito","Grillo",10,4,2015);
+        EntradaGeneral entradaGeneral01 = new EntradaGeneral(temporadaBaja0, cliente1, true);
+        listaObjetos.anyadirEntrada(entradaGeneral01);
+	//EntradaGeneral TEMPORADA BAJA - BEBE 
+        Cliente cliente02 = new Cliente(90,false,false,false,false,"Pepín","Griso",1,9,2016);           
+        EntradaGeneral entradaGeneral02 = new EntradaGeneral(temporadaBaja0, cliente2, false);
+        listaObjetos.anyadirEntrada(entradaGeneral02);
+	//EntradaGeneral TEMPORADA BAJA - ADULTO - ESTUDIANTE
+	Cliente cliente03 = new Cliente(170,true,false,false,false,"Jonny","Melabo",11,4,1990);
+        EntradaGeneral entradaGeneral03 = new EntradaGeneral(temporadaBaja0, cliente3, false);
+        listaObjetos.anyadirEntrada(entradaGeneral03);
+	//EntradaGeneral TEMPORADA BAJA - SENIOR - DISCAPACITADO - VIP
+	Cliente cliente04 = new Cliente(155,false,true,false,false,"Juan","De la Mesa",20,8,1935);
+        EntradaGeneral entradaGeneral04 = new EntradaGeneral(temporadaBaja0, cliente4, true);
+        listaObjetos.anyadirEntrada(entradaGeneral04);
+        
+        //
+        Cliente cliente004 = new Cliente(155,false,true,false,false,"Juan","De la Mesa",20,8,1935);
+        EntradaGeneral entradaGeneral004 = new EntradaGeneral(temporadaBaja, cliente4, true);
+        listaObjetos.anyadirEntrada(entradaGeneral004);
 	//Temporada Alta
 	GregorianCalendar temporadaAlta = new GregorianCalendar(2019,3,10);        
 	//EntradaGeneral TEMPORADA ALTA - ADULTO - DESEMPLEADO
@@ -302,6 +325,13 @@ public class Apertura {
         EntradaAniversario entradaAniversario0 = new EntradaAniversario(cumpleanyosNerea, cliente110, true);
         listaObjetos.anyadirEntrada(entradaAniversario0);
         
+        //ENTRADAS ANIVERSARIO
+        //EntradaAniversario  ADULTO 
+        GregorianCalendar cumpleanyosJaume = new GregorianCalendar(2019,5,29);        
+        Cliente cliente17 = new Cliente(178,false,false,false,false,"Jaume","Vila",29,6,1979);
+        EntradaAniversario entradaAniversario3 = new EntradaAniversario(cumpleanyosJaume, cliente17, true);
+        listaObjetos.anyadirEntrada(entradaAniversario3);  
+        
         GregorianCalendar cumpleanyosTolo = new GregorianCalendar(2019,5,30);        
         Cliente cliente11 = new Cliente(178,false,false,false,false,"Bartolomé","Vich",30,6,1979);
         EntradaAniversario entradaAniversario1 = new EntradaAniversario(cumpleanyosTolo, cliente11, true);
@@ -333,15 +363,6 @@ public class Apertura {
         //EntradaLaboral TEMPORADA ALTA - ADULTO - CARNET JOVEN 
         Cliente cliente16 = new Cliente(165,false,false,true,false,"Catalina","Bosch",2,3,1977);
         EntradaLaborable entradaTarde2 = new EntradaLaborable(temporadaAlta2, cliente16, false);
-
-        //ENTRADAS ANIVERSARIO
-        //EntradaAniversario  ADULTO 
-        GregorianCalendar cumpleanyosJaume = new GregorianCalendar(2019,5,29);        
-        Cliente cliente17 = new Cliente(178,false,false,false,false,"Jaume","Vila",29,6,1979);
-        EntradaAniversario entradaAniversario3 = new EntradaAniversario(cumpleanyosJaume, cliente17, true);
-        listaObjetos.anyadirEntrada(entradaAniversario3);        
-        
-        
         listaObjetos.anyadirEntrada(entradaTarde2);
 
         return listaObjetos;
