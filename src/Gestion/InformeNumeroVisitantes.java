@@ -20,7 +20,6 @@ public class InformeNumeroVisitantes {
         
         
     }
-
     
     private static ArrayList<LineaInforme> eliminarFechasDuplicadas(LinkedHashSet<String> listaFechas, 
                                                                     ArrayList<LineaInforme> informeDiario ) {
@@ -36,7 +35,7 @@ public class InformeNumeroVisitantes {
         return informeDiario;
         
     }
-    
+
     private static ArrayList<LineaInforme> contarVisitas(ArrayList<LineaInforme> informeDiario,
                                                          ArrayList<LineaInforme> informeTmp) {
         
@@ -62,6 +61,7 @@ public class InformeNumeroVisitantes {
         }        
         
     }
+    
     private static ArrayList<LineaInforme> devolverInformeDiarioEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral ) {
 
 
@@ -200,27 +200,122 @@ public class InformeNumeroVisitantes {
 
         return informeDiario;
         
-    }
-        
+    }      
     
+    private static ArrayList<LineaInforme> agruparInformes(ArrayList<LineaInforme> informeDiarioEntradaGeneral,
+                                                           ArrayList<LineaInforme> informeDiarioEntradaFamiliar,
+                                                           ArrayList<LineaInforme> informeDiarioEntradaLaborable,
+                                                           ArrayList<LineaInforme> informeDiarioEntradaTarde,
+                                                           ArrayList<LineaInforme> informeDiarioEntradaAniversario) {
+     
+        ArrayList<LineaInforme> informeDiario = new ArrayList<>();
+        
+        for (int i = 0 ; i < informeDiarioEntradaGeneral.size() ; i++) { 
+            
+            informeDiario.add(informeDiarioEntradaGeneral.get(i));
+
+        }
+        for (int i = 0 ; i < informeDiarioEntradaFamiliar.size() ; i++) { 
+            
+            informeDiario.add(informeDiarioEntradaFamiliar.get(i));
+        }
+        for (int i = 0 ; i < informeDiarioEntradaLaborable.size() ; i++) { 
+            
+            informeDiario.add(informeDiarioEntradaLaborable.get(i));
+        }
+        for (int i = 0 ; i < informeDiarioEntradaTarde.size() ; i++) { 
+            
+            informeDiario.add(informeDiarioEntradaTarde.get(i));
+        }
+        for (int i = 0 ; i < informeDiarioEntradaAniversario.size() ; i++) { 
+            
+            informeDiario.add(informeDiarioEntradaAniversario.get(i));
+        }        
+        
+        return informeDiario;
+    }
+    
+    private static ArrayList<LineaInforme> devolverInformeDiarioEntradasTotal(ArrayList<LineaInforme> informeDiarioEntradaGeneral,
+                                                                              ArrayList<LineaInforme> informeDiarioEntradaFamiliar,
+                                                                              ArrayList<LineaInforme> informeDiarioEntradaLaborable,
+                                                                              ArrayList<LineaInforme> informeDiarioEntradaTarde,
+                                                                              ArrayList<LineaInforme> informeDiarioEntradaAniversario) {
+        LinkedHashSet<String> listaFechas = new LinkedHashSet<>(); 
+        
+        
+        ArrayList<LineaInforme> informeAgrupado = agruparInformes(informeDiarioEntradaGeneral,
+                                                             informeDiarioEntradaFamiliar,
+                                                             informeDiarioEntradaLaborable,
+                                                             informeDiarioEntradaTarde,
+                                                             informeDiarioEntradaAniversario);
+        
+        //System.out.println("\nInforme agrupado:");
+        //mostrarInformeDiario(informeAgrupado);
+                
+        for (int i = 0 ; i < informeAgrupado.size() ; i++) {       
+
+            listaFechas.add(informeAgrupado.get(i).getFecha());
+
+        }  
+        
+        ArrayList<LineaInforme> informeDiario = new ArrayList<>();
+        
+        //System.out.println("\nImprimimos fechas");
+        
+        for (String fe: listaFechas) {
+            //System.out.println(fe);
+            informeDiario.add(new LineaInforme(fe));
+        }
+
+       
+        for (int i=0; i < informeDiario.size(); i++) {
+            for (int j=0; j< informeAgrupado.size(); j++) {
+                if (informeDiario.get(i).getFecha().equals(informeAgrupado.get(j).getFecha())) {
+                    informeDiario.get(i).sumarNumero(informeAgrupado.get(j).getNumero());
+                }
+            }
+        }        
+       
+        
+        return informeDiario;
+        
+    }
     public static void informeDiario (ListaObjetos listaObjetos) {
         
-        System.out.println("Número de Visitantes:");
-        System.out.println("\nEntrada General:");
+        System.out.println("--------------------"); 
+        System.out.println("Número de Visitantes"); 
+        System.out.println("---------------------\n");
+        
+        System.out.println("\n-Entrada General:");
         ArrayList<LineaInforme> informeDiarioEntradaGeneral = devolverInformeDiarioEntradaGeneral(listaObjetos.getListaEntradaGeneral());
         mostrarInformeDiario(informeDiarioEntradaGeneral);
-        System.out.println("\nEntrada Familiar:");        
+        
+        System.out.println("\n-Entrada Familiar:");        
         ArrayList<LineaInforme> informeDiarioEntradaFamiliar = devolverInformeDiarioEntradaFamilia(listaObjetos.getListaEntradasFamilia());
         mostrarInformeDiario(informeDiarioEntradaFamiliar);  
-        System.out.println("\nEntrada Laborable:");   
+        
+        System.out.println("\n-Entrada Laborable:");   
         ArrayList<LineaInforme> informeDiarioEntradaLaborable = devolverInformeDiarioEntradaLaborable(listaObjetos.getListaEntradasLaborable());
-        mostrarInformeDiario(informeDiarioEntradaLaborable);    
-        System.out.println("\nEntrada de Tarde:");           
+        mostrarInformeDiario(informeDiarioEntradaLaborable);  
+        
+        System.out.println("\n-Entrada de Tarde:");           
         ArrayList<LineaInforme> informeDiarioEntradaTarde = devolverInformeDiarioEntradaTarde(listaObjetos.getListaEntradasTarde());
-        mostrarInformeDiario(informeDiarioEntradaTarde);          
-        System.out.println("\nEntrada Aniversario:");           
+        mostrarInformeDiario(informeDiarioEntradaTarde);
+        
+        System.out.println("\n-Entrada Aniversario:");           
         ArrayList<LineaInforme> informeDiarioEntradaAniversario = devolverInformeDiarioEntradaAniversario(listaObjetos.getListaEntradasAniversario());
-        mostrarInformeDiario(informeDiarioEntradaAniversario);     
+        mostrarInformeDiario(informeDiarioEntradaAniversario);    
+        
+        
+        ArrayList<LineaInforme> informeDiario = devolverInformeDiarioEntradasTotal(informeDiarioEntradaGeneral,
+                                                                                   informeDiarioEntradaFamiliar,
+                                                                                   informeDiarioEntradaLaborable,
+                                                                                   informeDiarioEntradaTarde,
+                                                                                   informeDiarioEntradaAniversario);
+        System.out.println("\nTOTAL de visitantes por día:"); 
+        mostrarInformeDiario(informeDiario);           
+        System.out.println("");
     }
+    
     
 }
