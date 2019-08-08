@@ -251,7 +251,8 @@ public class InformeNumeroVisitantes {
         
         //System.out.println("\nInforme agrupado:");
         //mostrarInformeDiario(informeAgrupado);
-                
+
+        
         for (int i = 0 ; i < informeAgrupado.size() ; i++) {       
 
             listaFechas.add(informeAgrupado.get(i).getFecha());
@@ -272,6 +273,7 @@ public class InformeNumeroVisitantes {
             for (int j=0; j< informeAgrupado.size(); j++) {
                 if (informeDiario.get(i).getFecha().equals(informeAgrupado.get(j).getFecha())) {
                     informeDiario.get(i).sumarNumero(informeAgrupado.get(j).getNumero());
+                    
                 }
             }
         }        
@@ -280,7 +282,20 @@ public class InformeNumeroVisitantes {
         return informeDiario;
         
     }
+    
+    private static int devolverTotalVisitante(ArrayList<LineaInforme> informeDiario) {
+        int totalVisitantes = 0;
+        for (LineaInforme lineaInforme: informeDiario) {
+            totalVisitantes = totalVisitantes + lineaInforme.getNumero();
+        }
+        return totalVisitantes;
+    }
+
+   
+
     public static void informeDiario (ListaObjetos listaObjetos) {
+        
+       float promedioVisitantes = 0.0F;
         
         System.out.println("--------------------"); 
         System.out.println("Número de Visitantes"); 
@@ -313,8 +328,13 @@ public class InformeNumeroVisitantes {
                                                                                    informeDiarioEntradaTarde,
                                                                                    informeDiarioEntradaAniversario);
         System.out.println("\nTOTAL de visitantes por día:"); 
-        mostrarInformeDiario(informeDiario);           
-        System.out.println("");
+        mostrarInformeDiario(informeDiario);                 
+                
+        System.out.println("\nPromedio de Visitantes diarios:");
+        
+        promedioVisitantes = devolverTotalVisitante(informeDiario)/365;
+        
+        System.out.println(promedioVisitantes);
     }
     
     
