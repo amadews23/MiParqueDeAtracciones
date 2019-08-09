@@ -13,7 +13,6 @@ import java.util.LinkedHashSet;
  */
 public class InformeNumeroVisitantes {
     
-   
     
     public InformeNumeroVisitantes() {
         
@@ -61,8 +60,6 @@ public class InformeNumeroVisitantes {
         }        
         
     }
-    
-    
     
     private static ArrayList<LineaInforme> devolverInformeEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral,
                                                                          DateFormat dateFormat  ) {
@@ -232,11 +229,11 @@ public class InformeNumeroVisitantes {
         return informeDiario;
     }
     
-    private static ArrayList<LineaInforme> devolverInformeDiarioEntradasTotal(ArrayList<LineaInforme> informeDiarioEntradaGeneral,
-                                                                              ArrayList<LineaInforme> informeDiarioEntradaFamiliar,
-                                                                              ArrayList<LineaInforme> informeDiarioEntradaLaborable,
-                                                                              ArrayList<LineaInforme> informeDiarioEntradaTarde,
-                                                                              ArrayList<LineaInforme> informeDiarioEntradaAniversario) {
+    private static ArrayList<LineaInforme> devolverInformeEntradasTotal(ArrayList<LineaInforme> informeDiarioEntradaGeneral,
+                                                                        ArrayList<LineaInforme> informeDiarioEntradaFamiliar,
+                                                                        ArrayList<LineaInforme> informeDiarioEntradaLaborable,
+                                                                        ArrayList<LineaInforme> informeDiarioEntradaTarde,
+                                                                        ArrayList<LineaInforme> informeDiarioEntradaAniversario) {
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>(); 
         
         
@@ -289,64 +286,21 @@ public class InformeNumeroVisitantes {
     }
 
     public static void informeDiario (ListaObjetos listaObjetos) {
+            
+        System.out.println("----------------------------"); 
+        System.out.println("Número de Visitantes diarios"); 
+        System.out.println("---------------------------\n");
         
-        DateFormat dateFormat = new SimpleDateFormat("dd-MMMMMM-yyyy");        
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMMMMM-yyyy"); 
         
-        float promedioVisitantes = 0.0F;
-        
-        System.out.println("--------------------"); 
-        System.out.println("Número de Visitantes"); 
-        System.out.println("---------------------\n");
-        
-        System.out.println("\n-Entrada General:");
-        ArrayList<LineaInforme> informeDiarioEntradaGeneral = devolverInformeEntradaGeneral(listaObjetos.getListaEntradaGeneral(),
-                                                                                            dateFormat);
-        mostrarInforme(informeDiarioEntradaGeneral);
-        
-        System.out.println("\n-Entrada Familiar:");        
-        ArrayList<LineaInforme> informeDiarioEntradaFamiliar = devolverInformeEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
-                                                                                             dateFormat);
-        mostrarInforme(informeDiarioEntradaFamiliar);  
-        
-        System.out.println("\n-Entrada Laborable:");   
-        ArrayList<LineaInforme> informeDiarioEntradaLaborable = devolverInformeEntradaLaborable(listaObjetos.getListaEntradasLaborable(),
-                                                                                                dateFormat);
-        mostrarInforme(informeDiarioEntradaLaborable);  
-        
-        System.out.println("\n-Entrada de Tarde:");           
-        ArrayList<LineaInforme> informeDiarioEntradaTarde = devolverInformeEntradaTarde(listaObjetos.getListaEntradasTarde(),
-                                                                                        dateFormat);
-        mostrarInforme(informeDiarioEntradaTarde);
-        
-        System.out.println("\n-Entrada Aniversario:");           
-        ArrayList<LineaInforme> informeDiarioEntradaAniversario = devolverInformeEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
-                                                                                                          dateFormat);
-        mostrarInforme(informeDiarioEntradaAniversario);    
-        
-        
-        ArrayList<LineaInforme> informeDiario = devolverInformeDiarioEntradasTotal(informeDiarioEntradaGeneral,
-                                                                                   informeDiarioEntradaFamiliar,
-                                                                                   informeDiarioEntradaLaborable,
-                                                                                   informeDiarioEntradaTarde,
-                                                                                   informeDiarioEntradaAniversario);
-        System.out.println("\nTOTAL de visitantes por día:"); 
-        mostrarInforme(informeDiario);                 
-                
-        System.out.println("\nPromedio de Visitantes diarios:");
-        
-        promedioVisitantes = devolverTotalVisitante(informeDiario)/365;
-        
-        System.out.println(promedioVisitantes);
+        crearInforme(listaObjetos, dateFormat, 365);   
+  
     }
     
-  
-    
-    public static void informeMensual (ListaObjetos listaObjetos) {
-        System.out.println("--------------------"); 
-        System.out.println("Número de Visitantes"); 
-        System.out.println("---------------------\n");
+    private static void crearInforme(ListaObjetos listaObjetos, DateFormat dateFormat, int media) {
         
-        DateFormat dateFormat = new SimpleDateFormat("MMMMMM"); 
+    
+       float promedioVisitantes = 0.0F;        
         
         System.out.println("\n-Entrada General:");
         ArrayList<LineaInforme> informeDiarioEntradaGeneral = devolverInformeEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
@@ -355,7 +309,7 @@ public class InformeNumeroVisitantes {
         
        System.out.println("\n-Entrada Familiar:");        
         ArrayList<LineaInforme> informeDiarioEntradaFamiliar = devolverInformeEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
-                                                                                                    dateFormat);
+                                                                                             dateFormat);
         mostrarInforme(informeDiarioEntradaFamiliar);  
         
         System.out.println("\n-Entrada Laborable:");   
@@ -371,7 +325,37 @@ public class InformeNumeroVisitantes {
         System.out.println("\n-Entrada Aniversario:");           
         ArrayList<LineaInforme> informeDiarioEntradaAniversario = devolverInformeEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
                                                                                                            dateFormat);
-        mostrarInforme(informeDiarioEntradaAniversario);            
+        mostrarInforme(informeDiarioEntradaAniversario);    
+
+        ArrayList<LineaInforme> informeDiario = devolverInformeEntradasTotal(informeDiarioEntradaGeneral,
+                                                                             informeDiarioEntradaFamiliar,
+                                                                             informeDiarioEntradaLaborable,
+                                                                             informeDiarioEntradaTarde,
+                                                                             informeDiarioEntradaAniversario);
+        System.out.println("\nTOTAL de visitantes por mes:"); 
+        mostrarInforme(informeDiario);      
+
+        System.out.println("\nPromedio de Visitantes mensuales:");
+        
+        promedioVisitantes = devolverTotalVisitante(informeDiario)/media;
+        
+        System.out.println(promedioVisitantes);           
+    }
+      
+    /**
+     *
+     * @param listaObjetos
+     */
+    public static void informeMensual (ListaObjetos listaObjetos) {
+        
+        System.out.println("------------------------------"); 
+        System.out.println("Número de Visitantes mensuales"); 
+        System.out.println("------------------------------\n");
+        
+        DateFormat dateFormat = new SimpleDateFormat("MMMMMM"); 
+        
+        crearInforme(listaObjetos, dateFormat, 12);
+      
         
     }
     
