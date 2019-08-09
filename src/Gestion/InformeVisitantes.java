@@ -313,6 +313,45 @@ public class InformeVisitantes {
         System.out.println(promedioVisitantes);           
     }
 
+    private static ArrayList<LineaInforme> devolverInformePrecioEntradasTotal(ArrayList<LineaInforme> informeEntradaGeneral,
+                                                                              ArrayList<LineaInforme> informeEntradaFamiliar,
+                                                                              ArrayList<LineaInforme> informeEntradaLaborable,
+                                                                              ArrayList<LineaInforme> informeEntradaTarde,
+                                                                              ArrayList<LineaInforme> informeEntradaAniversario) {
+        LinkedHashSet<String> listaFechas = new LinkedHashSet<>(); 
+        
+        
+        ArrayList<LineaInforme> informeAgrupado = agruparInformes(informeEntradaGeneral,
+                                                                  informeEntradaFamiliar,
+                                                                  informeEntradaLaborable,
+                                                                  informeEntradaTarde,
+                                                                  informeEntradaAniversario);
+                
+        for (int i = 0 ; i < informeAgrupado.size() ; i++) {       
+
+            listaFechas.add(informeAgrupado.get(i).getFecha());
+
+        }  
+        
+        ArrayList<LineaInforme> informe = new ArrayList<>();
+               
+        for (String fecha: listaFechas) {
+
+            informe.add(new LineaInforme(fecha));
+        }
+       
+        for (int i=0; i < informe.size(); i++) {
+            for (int j=0; j< informeAgrupado.size(); j++) {
+                if (informe.get(i).getFecha().equals(informeAgrupado.get(j).getFecha())) {
+                    informe.get(i).sumarPrecio(informeAgrupado.get(j).getPrecio());
+                    
+                }
+            }
+        }              
+        
+        return informe;
+        
+    }    
 
     private static ArrayList<LineaInforme> contarPrecio(ArrayList<LineaInforme> informe,
                                                         ArrayList<LineaInforme> informeTmp) {
@@ -445,8 +484,8 @@ public class InformeVisitantes {
         
     }
     
-        private static ArrayList<LineaInforme> devolverInformePrecioEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
-                                                                                 DateFormat dateFormat) {
+    private static ArrayList<LineaInforme> devolverInformePrecioEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
+                                                                             DateFormat dateFormat) {
         
             //Recoge la fecha de las entradas (con duplicados).
         ArrayList<LineaInforme> informeTmp = new ArrayList<>();
@@ -471,9 +510,19 @@ public class InformeVisitantes {
         
     }    
     
+    private static float devolverPrecioTotalVisitante(ArrayList<LineaInforme> informe) {
+        
+        float totalPrecio = 0;
+        
+        for (LineaInforme lineaInforme: informe) {
+            totalPrecio = totalPrecio + lineaInforme.getPrecio();
+        }
+        
+        return totalPrecio;
+    }
     private static void crearInformePrecio(ListaObjetos listaObjetos, DateFormat dateFormat, int media) {       
     
-       //float promedioVisitantes = 0.0F;        
+       float promedioPrecioVisitantes = 0.0F;        
         
         System.out.println("\n-Entrada General:");
         ArrayList<LineaInforme> informeEntradaGeneral = devolverInformePrecioEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
@@ -500,19 +549,19 @@ public class InformeVisitantes {
                                                                                                     dateFormat);
         mostrarInformePrecio(informeEntradaAniversario);    
 
-        //ArrayList<LineaInforme> informe = devolverInformeEntradasTotal(informeEntradaGeneral,
-        //                                                               informeEntradaFamiliar,
-        //                                                               informeEntradaLaborable,
-        //                                                               informeEntradaTarde,
-        //                                                               informeEntradaAniversario);
-        //System.out.println("\nTOTAL de visitantes:"); 
-        //mostrarInforme(informe);      
+        ArrayList<LineaInforme> informe = devolverInformePrecioEntradasTotal(informeEntradaGeneral,
+                                                                             informeEntradaFamiliar,
+                                                                             informeEntradaLaborable,
+                                                                             informeEntradaTarde,
+                                                                             informeEntradaAniversario);
+        System.out.println("\nTOTAL de Gasto de los visitantes:"); 
+        mostrarInformePrecio(informe);      
 
-        //System.out.println("\nPromedio de Visitantes:");
+        System.out.println("\nPromedio de Gasto de los Visitantes:");
         
-        //promedioVisitantes = devolverTotalVisitante(informe)/media;
+        promedioPrecioVisitantes = devolverPrecioTotalVisitante(informe)/media;
         
-        //System.out.println(promedioVisitantes);           
+        System.out.println(promedioPrecioVisitantes);           
     }    
     
     /**
@@ -581,6 +630,10 @@ public class InformeVisitantes {
               
     }  
     
+    /**
+     *
+     * @param listaObjetos
+     */
     public static void informeDiarioPrecio (ListaObjetos listaObjetos) {
             
         System.out.println("----------------------------"); 
@@ -592,4 +645,40 @@ public class InformeVisitantes {
         crearInformePrecio(listaObjetos, dateFormat, 365);   
   
     }    
+     public static void informeMensualPrecio (ListaObjetos listaObjetos) {
+        
+        System.out.println("------------------------------"); 
+        System.out.println("Gasto de Visitantes, mensual"); 
+        System.out.println("------------------------------\n");
+        
+        //TODO
+        //Ojo! son todos los meses de todos los años        
+        DateFormat dateFormat = new SimpleDateFormat("MMMMMM"); 
+        
+        crearInformePrecio(listaObjetos, dateFormat, 12);     
+        
+    } 
+    public static void informeAnualPrecio (ListaObjetos listaObjetos) {
+        
+        System.out.println("------------------------------"); 
+        System.out.println("Gasto de Visitantes, anual"); 
+        System.out.println("------------------------------\n");
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy"); 
+        
+        crearInformePrecio(listaObjetos, dateFormat, 1);
+             
+    }   
+    public static void informeSemanalPrecio (ListaObjetos listaObjetos) {
+        
+        System.out.println("------------------------------"); 
+        System.out.println("Gasto de Visitantes, semanal"); 
+        System.out.println("------------------------------\n");
+        
+        DateFormat dateFormat = new SimpleDateFormat("w-yyyy"); 
+        
+        crearInformePrecio(listaObjetos, dateFormat, 52);
+              
+    }  
+     
 }
