@@ -42,7 +42,7 @@ public class MenuInformes {
             switch (opcion) {
                 case 1:
                     //controladorPrincipal.mostrarNumeroVisitantes();
-                    menuListarResumenes();
+                    menuListarResumenesVisitantes();
                     break;
                 case 2:
                     
@@ -60,7 +60,7 @@ public class MenuInformes {
         } while (opcion < 1 || opcion > 4);          
     }
     
-    private void menuListarResumenes() {
+    private void menuListarResumenesVisitantes() {
   
         int opcion = 0;
         System.out.println("-------------------"); 
@@ -68,8 +68,8 @@ public class MenuInformes {
         System.out.println("-------------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
         System.out.println("1- Ver número visitantes diarios");
-        //System.out.println("2- Ver lista de Entradas Laboral");
-        //System.out.println("3- Ver lista de Entradas de Tarde");   
+        System.out.println("2- Ver número de visitantes por meses");
+        System.out.println("3- Ver número de visitantes por años");   
         //System.out.println("4- Ver lista de Entradas Aniversario");  
         //System.out.println("5- Ver lista de Entradas Familiares");      
         //System.out.println("6- Volver atrás");
@@ -78,30 +78,19 @@ public class MenuInformes {
         
             switch (opcion) {
                 case 1:
-                    //System.out.println(listaObjetos.getListaEntradasGeneral());
-                    //menuListarNumeroVisitantes();
                     InformeNumeroVisitantes.informeDiario(listaObjetos);
-                    //System.out.println("\n");
                     break;
                 case 2:
-                    //System.out.println(listaObjetos.getListaEntradasLaborable());
-                    //mostrarEntradasLaboral();
-                    //System.out.println("\n");                    
+                    InformeNumeroVisitantes.informeMensual(listaObjetos);                                    
                     break;
                 case 3:
-                    //System.out.println(listaObjetos.getListaEntradasTarde());
-                    //mostrarEntradasTarde();
-                    //System.out.println("\n");                    
+                    InformeNumeroVisitantes.informeAnual(listaObjetos);                                           
                     break;
                 case 4:
-                    //System.out.println(listaObjetos.getListaEntradasAniversario());
-                    //mostrarEntradasAniversario();
-                    //System.out.println("\n");                    
+                  
                     break;
                 case 5:
-                    //System.out.println(listaObjetos.getListaEntradasFamilia());
-                    //mostrarEntradasFamilia();
-                    //System.out.println("\n");                    
+                  
                     break;                    
                 case 6:
                     System.out.println("Vamos al menú principal...");
@@ -114,7 +103,7 @@ public class MenuInformes {
         } while (opcion < 1 || opcion > 6);
     }
     
-    private void menuListarNumeroVisitantes() {
+    private void menuListarResumenesPrecioMedio() {
   
         int opcion = 0;
         System.out.println("-------------------------------"); 
