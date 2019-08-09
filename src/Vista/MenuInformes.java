@@ -114,10 +114,9 @@ public class MenuInformes {
         System.out.println("-------------------------------\n");
         System.out.println("Seleccione una de las siguientes opciones:");
         System.out.println("1- Ver gasto visitantes diario");
-        //System.out.println("2- Ver visitantes recibidos en una semana");
-        //System.out.println("3- Ver visitantes recibidos en un mes");   
-        //System.out.println("4- Ver visitantes recibidos en un día");  
-        //System.out.println("5- Ver todos los visitantes recibidos");      
+        System.out.println("2- Ver gasto visitantes mensual");
+        System.out.println("3- Ver gasto visitantes anual");   
+        System.out.println("4- Ver gasto visitantes semanal");     
         System.out.println("6- Volver atrás");
         
         do { opcion = Varios.pedirOpcion();
@@ -127,19 +126,13 @@ public class MenuInformes {
                     InformeVisitantes.informeDiarioPrecio(listaObjetos);
                     break;
                 case 2:
-                    //System.out.println(listaObjetos.getListaEntradasLaborable());
-                   
-                    System.out.println("\n");                    
+                    InformeVisitantes.informeMensualPrecio(listaObjetos);               
                     break;
                 case 3:
-
-                    
-                    System.out.println("\n");                    
+                    InformeVisitantes.informeAnualPrecio(listaObjetos);
                     break;
                 case 4:
-
-                    
-                    System.out.println("\n");                    
+                    InformeVisitantes.informeSemanalPrecio(listaObjetos);
                     break;
                 case 5:
 
