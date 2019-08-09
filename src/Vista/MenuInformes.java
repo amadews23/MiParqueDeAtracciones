@@ -7,12 +7,6 @@ import Gestion.InformeVisitantes;
 
 /**
  *
- * @author Bartolome Vich Lozano/**
- *
- * @author Bartolome Vich Lozano/**
- *
- * @author Bartolome Vich Lozano/**
- *
  * @author Bartolome Vich Lozano
  * @version 1.0 2019/8/2
 **/
