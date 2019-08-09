@@ -285,18 +285,6 @@ public class InformeNumeroVisitantes {
         return totalVisitantes;
     }
 
-    public static void informeDiario (ListaObjetos listaObjetos) {
-            
-        System.out.println("----------------------------"); 
-        System.out.println("Número de Visitantes diarios"); 
-        System.out.println("---------------------------\n");
-        
-        DateFormat dateFormat = new SimpleDateFormat("dd-MMMMMM-yyyy"); 
-        
-        crearInforme(listaObjetos, dateFormat, 365);   
-  
-    }
-    
     private static void crearInforme(ListaObjetos listaObjetos, DateFormat dateFormat, int media) {
         
     
@@ -332,16 +320,32 @@ public class InformeNumeroVisitantes {
                                                                              informeDiarioEntradaLaborable,
                                                                              informeDiarioEntradaTarde,
                                                                              informeDiarioEntradaAniversario);
-        System.out.println("\nTOTAL de visitantes por mes:"); 
+        System.out.println("\nTOTAL de visitantes:"); 
         mostrarInforme(informeDiario);      
 
-        System.out.println("\nPromedio de Visitantes mensuales:");
+        System.out.println("\nPromedio de Visitantes:");
         
         promedioVisitantes = devolverTotalVisitante(informeDiario)/media;
         
         System.out.println(promedioVisitantes);           
     }
-      
+    
+    /**
+     *
+     * @param listaObjetos
+     */
+    public static void informeDiario (ListaObjetos listaObjetos) {
+            
+        System.out.println("----------------------------"); 
+        System.out.println("Número de Visitantes diarios"); 
+        System.out.println("---------------------------\n");
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMMMMM-yyyy"); 
+        
+        crearInforme(listaObjetos, dateFormat, 365);   
+  
+    }
+          
     /**
      *
      * @param listaObjetos
@@ -358,5 +362,18 @@ public class InformeNumeroVisitantes {
       
         
     }
+    
+    public static void informeAnual (ListaObjetos listaObjetos) {
+        
+        System.out.println("------------------------------"); 
+        System.out.println("Número de Visitantes anuales"); 
+        System.out.println("------------------------------\n");
+        
+        DateFormat dateFormat = new SimpleDateFormat("yyyy"); 
+        
+        crearInforme(listaObjetos, dateFormat, 1);
+      
+        
+    }    
     
 }
