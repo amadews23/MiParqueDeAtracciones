@@ -645,7 +645,12 @@ public class InformeVisitantes {
         crearInformePrecio(listaObjetos, dateFormat, 365);   
   
     }    
-     public static void informeMensualPrecio (ListaObjetos listaObjetos) {
+
+    /**
+     *
+     * @param listaObjetos
+     */
+    public static void informeMensualPrecio (ListaObjetos listaObjetos) {
         
         System.out.println("------------------------------"); 
         System.out.println("Gasto de Visitantes, mensual"); 
@@ -658,6 +663,11 @@ public class InformeVisitantes {
         crearInformePrecio(listaObjetos, dateFormat, 12);     
         
     } 
+
+    /**
+     *
+     * @param listaObjetos
+     */
     public static void informeAnualPrecio (ListaObjetos listaObjetos) {
         
         System.out.println("------------------------------"); 
@@ -669,6 +679,11 @@ public class InformeVisitantes {
         crearInformePrecio(listaObjetos, dateFormat, 1);
              
     }   
+
+    /**
+     *
+     * @param listaObjetos
+     */
     public static void informeSemanalPrecio (ListaObjetos listaObjetos) {
         
         System.out.println("------------------------------"); 
