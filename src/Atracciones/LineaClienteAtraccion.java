@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.10 2019/8/14
+ * @version 1.0 2019/8/14
  */
 public class LineaClienteAtraccion {
     
