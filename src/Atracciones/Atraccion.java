@@ -20,7 +20,7 @@ public class Atraccion {
    
         private String nombreAtraccion;
         private boolean esActiva;
-        private ArrayList<LineaClienteAtraccion> listaClientes ;
+        private ArrayList<ClienteAtraccion> listaClientes ;
         private ArrayList<Empleado> listaEmpleadosAtenciones;
         private ArrayList<Empleado> listaEmpleadosAyudantes;
         private ArrayList<Empleado> listaEmpleadosRelaciones;
@@ -58,7 +58,7 @@ public class Atraccion {
      */
     public Atraccion(
             String nombreAtraccion, 
-            ArrayList<LineaClienteAtraccion> listaClientes, 
+            ArrayList<ClienteAtraccion> listaClientes, 
             ArrayList<Empleado> listaEmpleadosAyudantes, 
             ArrayList<Empleado> listaEmpleadosResponsables, 
             ArrayList<Empleado> listaEmpleadosAtenciones, 
@@ -101,11 +101,11 @@ public class Atraccion {
         this.esActiva = esActiva;
     }
 
-    public ArrayList<LineaClienteAtraccion> getListaClientes() {
+    public ArrayList<ClienteAtraccion> getListaClientes() {
         return listaClientes;
     }
 
-    public void setListaClientes(ArrayList<LineaClienteAtraccion> listaClientes) {
+    public void setListaClientes(ArrayList<ClienteAtraccion> listaClientes) {
         this.listaClientes = listaClientes;
     }
 
@@ -170,35 +170,35 @@ public class Atraccion {
     
     public void anyadirCliente( EntradaAniversario entrada) {
         
-        this.listaClientes.add(new LineaClienteAtraccion(entrada.getCliente(), 
+        this.listaClientes.add(new ClienteAtraccion(entrada.getCliente(), 
                                                          entrada.getFechaHoraEntrada()));
         
     } 
 
     public void anyadirCliente( EntradaFamilia entrada) {
         
-        this.listaClientes.add(new LineaClienteAtraccion(entrada.getCliente(), 
+        this.listaClientes.add(new ClienteAtraccion(entrada.getCliente(), 
                                                          entrada.getFechaHoraEntrada()));
       
     } 
     
     public void anyadirCliente( EntradaGeneral entrada) {
         
-        this.listaClientes.add(new LineaClienteAtraccion(entrada.getCliente(), 
+        this.listaClientes.add(new ClienteAtraccion(entrada.getCliente(), 
                                                          entrada.getFechaHoraEntrada()));
      
     } 
 
     public void anyadirCliente( EntradaLaborable entrada) {
         
-        this.listaClientes.add(new LineaClienteAtraccion(entrada.getCliente(), 
+        this.listaClientes.add(new ClienteAtraccion(entrada.getCliente(), 
                                                          entrada.getFechaHoraEntrada()));
     
     }     
     
     public void anyadirCliente( EntradaTarde entrada) {
         
-        this.listaClientes.add(new LineaClienteAtraccion(entrada.getCliente(), 
+        this.listaClientes.add(new ClienteAtraccion(entrada.getCliente(), 
                                                          entrada.getFechaHoraEntrada()));
     
     } 
