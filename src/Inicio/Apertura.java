@@ -255,12 +255,18 @@ public class Apertura {
         
         //Fecha de inio y de fin
         GregorianCalendar unoEnero =  new GregorianCalendar(2019,0,1);
+        GregorianCalendar dosFebrero = new GregorianCalendar(2019,1,2);
+        GregorianCalendar tresMarzo = new GregorianCalendar(2019,2,3);        
         GregorianCalendar treintaUnoDiciembre = new GregorianCalendar(2019,11,31);
         
         //Objetos AtraccionFuncionando
         AtraccionFuncionando atraccionFuncionandoA1 = new AtraccionFuncionando(unoEnero,
-                                                                               treintaUnoDiciembre,
+                                                                               dosFebrero,
                                                                                atraccionA1);
+
+        AtraccionFuncionando atraccionFuncionando0A1 = new AtraccionFuncionando(tresMarzo,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionA1);        
 
         AtraccionFuncionando atraccionFuncionandoB1 = new AtraccionFuncionando(unoEnero,
                                                                                treintaUnoDiciembre,
@@ -278,6 +284,7 @@ public class Apertura {
                                                                                atraccionE1);  
         //Añadimos a la lista
         listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoA1);
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionando0A1);      
         listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoB1);
         listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoC1);
         listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoD1);
