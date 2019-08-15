@@ -11,6 +11,7 @@ import Gestion.EntradaGeneral;
 import Gestion.EntradaLaborable;
 import Gestion.EntradaTarde;
 import Gestion.ListaObjetos;
+import Gestion.AtraccionFuncionando;
 import java.util.GregorianCalendar;
 
 /**
@@ -250,6 +251,37 @@ public class Apertura {
         atraccionD1.setEsActiva(true);
         atraccionE1.setEsActiva(true);
 
+        //*CREAMOS Lista de ATRACCIONESFUNCIONANDO
+        
+        //Fecha de inio y de fin
+        GregorianCalendar unoEnero =  new GregorianCalendar(2019,0,1);
+        GregorianCalendar treintaUnoDiciembre = new GregorianCalendar(2019,11,31);
+        
+        //Objetos AtraccionFuncionando
+        AtraccionFuncionando atraccionFuncionandoA1 = new AtraccionFuncionando(unoEnero,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionA1);
+
+        AtraccionFuncionando atraccionFuncionandoB1 = new AtraccionFuncionando(unoEnero,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionB1);
+
+        AtraccionFuncionando atraccionFuncionandoC1 = new AtraccionFuncionando(unoEnero,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionC1);
+       
+        AtraccionFuncionando atraccionFuncionandoD1 = new AtraccionFuncionando(unoEnero,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionD1);
+        AtraccionFuncionando atraccionFuncionandoE1 = new AtraccionFuncionando(unoEnero,
+                                                                               treintaUnoDiciembre,
+                                                                               atraccionE1);  
+        //Añadimos a la lista
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoA1);
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoB1);
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoC1);
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoD1);
+        listaObjetos.anyadirAtraccionFuncionando(atraccionFuncionandoE1);
         
         //* ENTRADAS *
         //ENTRADAS GENERAL
