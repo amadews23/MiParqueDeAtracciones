@@ -21,6 +21,7 @@ public class ListaObjetos {
     private ArrayList<Empleado> listaEmpleadosAyudante;
     private ArrayList<Empleado> listaEmpleadosRelaciones;
     private ArrayList<Empleado> listaEmpleadosResponsable;
+    private ArrayList<AtraccionFuncionando> listaAtraccionesFuncionando;
 
 
     public ListaObjetos(ArrayList<Atraccion> listaAtracciones) {
@@ -38,66 +39,149 @@ public class ListaObjetos {
         this.listaEmpleadosAyudante = new ArrayList<>();
         this.listaEmpleadosRelaciones = new ArrayList<>();
         this.listaEmpleadosResponsable = new ArrayList<>();
+        this.listaAtraccionesFuncionando = new ArrayList<>();
         
         
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Atraccion> getListaAtracciones() {
         return listaAtracciones;
     }
 
+    /**
+     *
+     * @param listaAtracciones
+     */
     public void setListaAtracciones(ArrayList<Atraccion> listaAtracciones) {
         this.listaAtracciones = listaAtracciones;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<EntradaGeneral> getListaEntradaGeneral() {
         return listaEntradasGeneral;
     }
 
+    /**
+     *
+     * @param listaEntradaGeneral
+     */
     public void setListaEntradaGeneral(ArrayList<EntradaGeneral> listaEntradaGeneral) {
         this.listaEntradasGeneral = listaEntradaGeneral;
     }
 
+    /**
+     * Obtiene la lista de entradas General
+     * @return
+     */
     public ArrayList<EntradaGeneral> getListaEntradasGeneral() {
         return listaEntradasGeneral;
     }
 
+    /**
+     * Obtiene la lista de entradas Laborables
+     * @return
+     */
     public ArrayList<EntradaLaborable> getListaEntradasLaborable() {
         return listaEntradasLaborable;
     }
 
+    /**
+     * Obtiene la lista de entradas de Tarde
+     * @return
+     */
     public ArrayList<EntradaTarde> getListaEntradasTarde() {
         return listaEntradasTarde;
     }
 
+    /**
+     * Obtiene la lista de entradas Familia
+     * @return
+     */
     public ArrayList<EntradaFamilia> getListaEntradasFamilia() {
         return listaEntradasFamilia;
     }
 
+    /**
+     * Obtiene la lista de entradas Aniversario
+     * @return
+     */
     public ArrayList<EntradaAniversario> getListaEntradasAniversario() {
         return listaEntradasAniversario;
     }
 
+    /**
+     * Obtiene la lista de los empleados Atención
+     * @return
+     */
     public ArrayList<Empleado> getListaEmpleadosAtencion() {
         return listaEmpleadosAtencion;
     }
 
+    /**
+     * Obtiene la lista de los empleados Ayudante
+     * @return
+     */
     public ArrayList<Empleado> getListaEmpleadosAyudante() {
         return listaEmpleadosAyudante;
     }
 
+    /**
+     * Obtiene la lista de los empleados Relaciones
+     * @return
+     */
     public ArrayList<Empleado> getListaEmpleadosRelaciones() {
         return listaEmpleadosRelaciones;
     }
 
+    /**
+     * Obtiene la lista de los empleados Responsable
+     * @return
+     */
     public ArrayList<Empleado> getListaEmpleadosResponsable() {
         return listaEmpleadosResponsable;
     }
+
+    /**
+     * Obtiene la lista de las atracciones en funcionamiento
+     * @return
+     */
+    public ArrayList<AtraccionFuncionando> getListaAtraccionesFuncionando() {
+        return listaAtraccionesFuncionando;
+    }
     
+    /**
+     * Añade una atracción a la lista de atracciones
+     * @param atraccion
+     */
     public void anyadirAtraccion(Atraccion atraccion) {
         this.listaAtracciones.add(atraccion);
     }
 
+    /**
+     * Añadimos un objeto AtraccionFuncionando a la lista
+     * @param atraccionFuncionando
+     */
+    public void anyadirAtraccionFuncionando(AtraccionFuncionando atraccionFuncionando) {
+        this.listaAtraccionesFuncionando.add(atraccionFuncionando);
+        
+    }
+    
+    /**
+     * Elimina un objeto AtraccionFuncionando de la lista
+     * @param indice
+     */
+    public void quitarAtraccionFuncioando(int indice ) {
+        this.listaAtraccionesFuncionando.remove(indice);
+    }
+    
+    
     /**
      * Elimina una atraccion de la lista de atracciones.
      * @param indice
