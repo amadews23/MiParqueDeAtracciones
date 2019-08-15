@@ -10,14 +10,14 @@ package Gestion;
 public class CalculosPrecios {
     
     private static float calcularEntrada(float precioBase, 
-                                        EnumTemporadaPrecio tipoTemporada,
-                                        EnumTipoCliente tipoCliente,
-                                        boolean esEstudiante,
-                                        boolean esDiscapacitado,
-                                        boolean esCarneJoven,
-                                        boolean esDesempleado,
-                                        boolean esVip,
-                                        float precioVip ) {
+                                         EnumTemporadaPrecio tipoTemporada,
+                                         EnumTipoCliente tipoCliente,
+                                         boolean esEstudiante,
+                                         boolean esDiscapacitado,
+                                         boolean esCarneJoven,
+                                         boolean esDesempleado,
+                                         boolean esVip,
+                                         float precioVip ) {
        
         float precioEntradaTemporada;
         float descuentoEdad ;
@@ -63,11 +63,11 @@ public class CalculosPrecios {
         //System.out.println(precioVip);
         //Sumamos todo
         precioEntradaFinal = precioEntradaEdad +
-                        descuentoEstudiante + 
-                        descuentoDiscapacitado + 
-                        descuentoCarneJoven + 
-                        descuentoDesempleado + 
-                        precioVip;
+                             descuentoEstudiante + 
+                             descuentoDiscapacitado + 
+                             descuentoCarneJoven + 
+                             descuentoDesempleado + 
+                             precioVip;
   
 
         return precioEntradaFinal;    
@@ -90,14 +90,14 @@ public class CalculosPrecios {
      * @return 
      */
     public static float calcularPrecioEntrada(float precioBaseEntrada,
-                                                   EnumTemporadaPrecio tipoTemporada, 
-                                                   EnumTipoCliente tipoCliente,                                                   
-                                                   boolean esEstudiante,
-                                                   boolean esDiscapacitado,
-                                                   boolean esCarneJoven,
-                                                   boolean esDesempleado,
-                                                   boolean esVip,
-                                                   float precioVip ) {
+                                              EnumTemporadaPrecio tipoTemporada, 
+                                              EnumTipoCliente tipoCliente,                                                   
+                                              boolean esEstudiante,
+                                              boolean esDiscapacitado,
+                                              boolean esCarneJoven,
+                                              boolean esDesempleado,
+                                              boolean esVip,
+                                              float precioVip ) {
         
         float precioEntrada ; 
         
