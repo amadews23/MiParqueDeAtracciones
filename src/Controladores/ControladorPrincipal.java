@@ -108,71 +108,99 @@ public class ControladorPrincipal {
     private void mostrarEmpleados (EnumTipoEmpleado tipoEmpleado){
         System.out.println("Lista de Empleados");
         
-        if (tipoEmpleado == EnumTipoEmpleado.ATENCION) {
-            for (int i = 0; i < listaObjetos.getListaEmpleadosAtencion().size(); i ++) {
-                System.out.println(i + "-" + listaObjetos.getListaEmpleadosAtencion().get(i).getNombre()
-                                + " " + listaObjetos.getListaEmpleadosAtencion().get(i).getApellidos()
-                                + " Dni " + listaObjetos.getListaEmpleadosAtencion().get(i).getDni());
-            }
-        }
-        if (tipoEmpleado == EnumTipoEmpleado.AYUDANTE) {
-            for (int i = 0; i < listaObjetos.getListaEmpleadosAyudante().size(); i ++) {
-                System.out.println(i + "-" + listaObjetos.getListaEmpleadosAyudante().get(i).getNombre()
-                                + " " + listaObjetos.getListaEmpleadosAyudante().get(i).getApellidos()
-                                + " Dni " + listaObjetos.getListaEmpleadosAyudante().get(i).getDni());
-            }
+        switch (tipoEmpleado) {
             
+            case ATENCION:
+                for (int i = 0; i < listaObjetos.getListaEmpleadosAtencion().size(); i ++) {
+                    System.out.println(i + "-" + listaObjetos.getListaEmpleadosAtencion().get(i).getNombre()
+                                       + " " + listaObjetos.getListaEmpleadosAtencion().get(i).getApellidos()
+                                       + " Dni " + listaObjetos.getListaEmpleadosAtencion().get(i).getDni());
+                }
+                break;
+
+            case AYUDANTE: 
+                for (int i = 0; i < listaObjetos.getListaEmpleadosAyudante().size(); i ++) {
+                    System.out.println(i + "-" + listaObjetos.getListaEmpleadosAyudante().get(i).getNombre()
+                                       + " " + listaObjetos.getListaEmpleadosAyudante().get(i).getApellidos()
+                                       + " Dni " + listaObjetos.getListaEmpleadosAyudante().get(i).getDni());
+                }
+                break;
+            
+        
+            case RELACIONES:
+                for (int i = 0; i < listaObjetos.getListaEmpleadosRelaciones().size(); i ++) {
+                    System.out.println(i + "-" + listaObjetos.getListaEmpleadosRelaciones().get(i).getNombre()
+                                       + " " + listaObjetos.getListaEmpleadosRelaciones().get(i).getApellidos()
+                                       + " Dni " + listaObjetos.getListaEmpleadosRelaciones().get(i).getDni());
+                }
+                break;
+           
+            case RESPONSABLE:
+                for (int i = 0; i < listaObjetos.getListaEmpleadosResponsable().size(); i ++) {
+                    System.out.println(i + "-" + listaObjetos.getListaEmpleadosResponsable().get(i).getNombre()
+                                       + " " + listaObjetos.getListaEmpleadosResponsable().get(i).getApellidos()
+                                       + " Dni " + listaObjetos.getListaEmpleadosResponsable().get(i).getDni());
+                }
+                break;   
         }
-        if (tipoEmpleado == EnumTipoEmpleado.RELACIONES) {
-            for (int i = 0; i < listaObjetos.getListaEmpleadosRelaciones().size(); i ++) {
-                System.out.println(i + "-" + listaObjetos.getListaEmpleadosRelaciones().get(i).getNombre()
-                                + " " + listaObjetos.getListaEmpleadosRelaciones().get(i).getApellidos()
-                                + " Dni " + listaObjetos.getListaEmpleadosRelaciones().get(i).getDni());
-            }
-        }   
-        if (tipoEmpleado == EnumTipoEmpleado.RESPONSABLE) {
-            for (int i = 0; i < listaObjetos.getListaEmpleadosResponsable().size(); i ++) {
-                System.out.println(i + "-" + listaObjetos.getListaEmpleadosResponsable().get(i).getNombre()
-                                + " " + listaObjetos.getListaEmpleadosResponsable().get(i).getApellidos()
-                                + " Dni " + listaObjetos.getListaEmpleadosResponsable().get(i).getDni());
-            }
-        }          
     }
     
     //lista simple para eliminar o modificar
     private void mostrarAtraccionesDisponibles(EnumTipoEmpleado tipoEmpleado) {
-
-        if (tipoEmpleado == EnumTipoEmpleado.ATENCION) {
-            for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
-                if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosAtenciones().size() < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosAtenciones()) {
-                    System.out.println(i+ "-" + "Nombre: " + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
-                    + ", Tipo:" + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
-                }   
-            }
-        } 
-        if (tipoEmpleado == EnumTipoEmpleado.AYUDANTE) {
-            for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
-                if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosAyudantes().size() < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosAyudantes()) {
-                    System.out.println(i+ "-" + "Nombre: " + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
-                    + ", Tipo:" + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
-                }   
-            }
-        } 
-        if (tipoEmpleado == EnumTipoEmpleado.RELACIONES) {
-            for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
-                if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosRelaciones().size() < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosRelaciones()) {
-                    System.out.println(i+ "-" + "Nombre: " + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
-                    + ", Tipo:" + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
-                }   
-            }
-        }  
-        if (tipoEmpleado == EnumTipoEmpleado.RESPONSABLE) {
-            for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
-                if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosResponsables().size() < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosResponsables()) {
-                    System.out.println(i+ "-" + "Nombre: " + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
-                    + ", Tipo:" + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
-                }   
-            }
+        switch (tipoEmpleado) {
+            
+        
+            case ATENCION:
+                for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
+                    if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosAtenciones().size() 
+                        < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosAtenciones()) {
+                        
+                            System.out.println(i+ "-" + "Nombre: " 
+                                               + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
+                                               + ", Tipo:" 
+                                               + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
+                    }   
+                }
+                break;
+                
+            case AYUDANTE: 
+                for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
+                    if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosAyudantes().size() 
+                        < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosAyudantes()) {
+                        
+                            System.out.println(i+ "-" + "Nombre: " 
+                                               + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
+                                               + ", Tipo:" 
+                                               + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
+                    }   
+                }
+                break;
+                
+            case RELACIONES:
+                for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
+                    if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosRelaciones().size() 
+                        < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosRelaciones()) {
+                    
+                            System.out.println(i+ "-" + "Nombre: " 
+                                               + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
+                                               + ", Tipo:"
+                                               + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
+                    }   
+                }
+                break;
+          
+            case RESPONSABLE: 
+                for (int i=0; i< listaObjetos.getListaAtracciones().size(); i++) {
+                    if (listaObjetos.getListaAtracciones().get(i).getListaEmpleadosResponsables().size() 
+                        < listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNumEmpleadosResponsables()) {
+                    
+                        System.out.println(i+ "-" + "Nombre: " 
+                                           + listaObjetos.getListaAtracciones().get(i).getNombreAtraccion() 
+                                           + ", Tipo:" 
+                                           + listaObjetos.getListaAtracciones().get(i).getTipoAtraccion().getNombreTipotraccion());
+                    }   
+                }
+                break;               
         }
     } 
     
