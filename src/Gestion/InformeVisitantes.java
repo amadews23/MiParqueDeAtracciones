@@ -18,14 +18,14 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> eliminarFechasDuplicadas(LinkedHashSet<String> listaFechas, 
-                                                                    ArrayList<LineaInforme> informeDiario ) {
+    private static ArrayList<LineaInformeVisitantes> eliminarFechasDuplicadas(LinkedHashSet<String> listaFechas, 
+                                                                              ArrayList<LineaInformeVisitantes> informeDiario ) {
         
         //Copiamos a la lista final las fechas (no estaran duplicadas)
         Iterator <String> iterador2 = listaFechas.iterator();       
         while(iterador2.hasNext()) {
 
-            informeDiario.add(new LineaInforme(iterador2.next()));
+            informeDiario.add(new LineaInformeVisitantes(iterador2.next()));
 
         }
         
@@ -33,8 +33,8 @@ public class InformeVisitantes {
         
     }
 
-    private static ArrayList<LineaInforme> contarVisitas(ArrayList<LineaInforme> informe,
-                                                         ArrayList<LineaInforme> informeTmp) {
+    private static ArrayList<LineaInformeVisitantes> contarVisitas(ArrayList<LineaInformeVisitantes> informe,
+                                                                   ArrayList<LineaInformeVisitantes> informeTmp) {
         
         //Por cada fecha duplicada incrementamos Numero en el objeto lineaInforme
         for (int i=0; i < informe.size(); i++) {
@@ -50,7 +50,7 @@ public class InformeVisitantes {
                 
     }
     
-    private static void mostrarInforme(ArrayList<LineaInforme> informe) {
+    private static void mostrarInforme(ArrayList<LineaInformeVisitantes> informe) {
     
         for (int i = 0; i < informe.size(); i++) {
 
@@ -59,19 +59,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformeEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral,
-                                                                         DateFormat dateFormat  ) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral,
+                                                                                   DateFormat dateFormat  ) {
         
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasGeneral.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime())));
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime())));
             listaFechas.add(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime()));
 
         }
@@ -83,19 +83,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformeEntradaAniversario(ArrayList<EntradaAniversario> listaEntradasAniversario,
-                                                                             DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradaAniversario(ArrayList<EntradaAniversario> listaEntradasAniversario,
+                                                                                       DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasAniversario.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime())));
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime())));
             listaFechas.add(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime()));
 
         }
@@ -107,19 +107,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformeEntradaFamilia(ArrayList<EntradaFamilia> listaEntradasFamilia,
-                                                                         DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradaFamilia(ArrayList<EntradaFamilia> listaEntradasFamilia,
+                                                                                   DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
       
         for (int i = 0 ; i < listaEntradasFamilia.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime())));
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime())));
             listaFechas.add(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime()));
 
         }
@@ -131,19 +131,19 @@ public class InformeVisitantes {
         
     }
 
-    private static ArrayList<LineaInforme> devolverInformeEntradaLaborable(ArrayList<EntradaLaborable> listaEntradasLaborable,
-                                                                           DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradaLaborable(ArrayList<EntradaLaborable> listaEntradasLaborable,
+                                                                                     DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasLaborable.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime())));
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime())));
             listaFechas.add(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime()));
 
         }
@@ -156,19 +156,19 @@ public class InformeVisitantes {
         
     }
 
-    private static ArrayList<LineaInforme> devolverInformeEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
-                                                                       DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
+                                                                                 DateFormat dateFormat) {
         
             //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasTarde.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime())));
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime())));
             listaFechas.add(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime()));
 
         }
@@ -180,13 +180,13 @@ public class InformeVisitantes {
         
     }    
     
-    private static ArrayList<LineaInforme> agruparInformes(ArrayList<LineaInforme> informeEntradaGeneral,
-                                                           ArrayList<LineaInforme> informeEntradaFamiliar,
-                                                           ArrayList<LineaInforme> informeEntradaLaborable,
-                                                           ArrayList<LineaInforme> informeEntradaTarde,
-                                                           ArrayList<LineaInforme> informeEntradaAniversario) {
+    private static ArrayList<LineaInformeVisitantes> agruparInformes(ArrayList<LineaInformeVisitantes> informeEntradaGeneral,
+                                                                     ArrayList<LineaInformeVisitantes> informeEntradaFamiliar,
+                                                                     ArrayList<LineaInformeVisitantes> informeEntradaLaborable,
+                                                                     ArrayList<LineaInformeVisitantes> informeEntradaTarde,
+                                                                     ArrayList<LineaInformeVisitantes> informeEntradaAniversario) {
      
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < informeEntradaGeneral.size() ; i++) { 
             
@@ -213,15 +213,15 @@ public class InformeVisitantes {
         return informe;
     }
     
-    private static ArrayList<LineaInforme> devolverInformeEntradasTotal(ArrayList<LineaInforme> informeEntradaGeneral,
-                                                                        ArrayList<LineaInforme> informeEntradaFamiliar,
-                                                                        ArrayList<LineaInforme> informeEntradaLaborable,
-                                                                        ArrayList<LineaInforme> informeEntradaTarde,
-                                                                        ArrayList<LineaInforme> informeEntradaAniversario) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformeEntradasTotal(ArrayList<LineaInformeVisitantes> informeEntradaGeneral,
+                                                                                  ArrayList<LineaInformeVisitantes> informeEntradaFamiliar,
+                                                                                  ArrayList<LineaInformeVisitantes> informeEntradaLaborable,
+                                                                                  ArrayList<LineaInformeVisitantes> informeEntradaTarde,
+                                                                                  ArrayList<LineaInformeVisitantes> informeEntradaAniversario) {
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>(); 
         
         
-        ArrayList<LineaInforme> informeAgrupado = agruparInformes(informeEntradaGeneral,
+        ArrayList<LineaInformeVisitantes> informeAgrupado = agruparInformes(informeEntradaGeneral,
                                                                   informeEntradaFamiliar,
                                                                   informeEntradaLaborable,
                                                                   informeEntradaTarde,
@@ -236,13 +236,13 @@ public class InformeVisitantes {
 
         }  
         
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         //System.out.println("\nImprimimos fechas");
         
         for (String fecha: listaFechas) {
             //System.out.println(fe);
-            informe.add(new LineaInforme(fecha));
+            informe.add(new LineaInformeVisitantes(fecha));
         }
        
         for (int i=0; i < informe.size(); i++) {
@@ -258,11 +258,11 @@ public class InformeVisitantes {
         
     }
     
-    private static int devolverTotalVisitante(ArrayList<LineaInforme> informe) {
+    private static int devolverTotalVisitante(ArrayList<LineaInformeVisitantes> informe) {
         
         int totalVisitantes = 0;
         
-        for (LineaInforme lineaInforme: informe) {
+        for (LineaInformeVisitantes lineaInforme: informe) {
             totalVisitantes = totalVisitantes + lineaInforme.getNumero();
         }
         
@@ -274,54 +274,54 @@ public class InformeVisitantes {
        float promedioVisitantes = 0.0F;        
         
         System.out.println("\n-Entrada General:");
-        ArrayList<LineaInforme> informeEntradaGeneral = devolverInformeEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
-                                                                                      dateFormat );
+        ArrayList<LineaInformeVisitantes> informeEntradaGeneral = devolverInformeEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
+                                                                                                dateFormat );
         mostrarInforme(informeEntradaGeneral);    
         
         System.out.println("\n-Entrada Familiar:");        
-        ArrayList<LineaInforme> informeEntradaFamiliar = devolverInformeEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
-                                                                                       dateFormat);
+        ArrayList<LineaInformeVisitantes> informeEntradaFamiliar = devolverInformeEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
+                                                                                                 dateFormat);
         mostrarInforme(informeEntradaFamiliar);  
         
         System.out.println("\n-Entrada Laborable:");   
-        ArrayList<LineaInforme> informeEntradaLaborable = devolverInformeEntradaLaborable(listaObjetos.getListaEntradasLaborable(),
-                                                                                          dateFormat);
+        ArrayList<LineaInformeVisitantes> informeEntradaLaborable = devolverInformeEntradaLaborable(listaObjetos.getListaEntradasLaborable(),
+                                                                                                    dateFormat);
         mostrarInforme(informeEntradaLaborable);  
         
         System.out.println("\n-Entrada de Tarde:");           
-        ArrayList<LineaInforme> informeEntradaTarde = devolverInformeEntradaTarde(listaObjetos.getListaEntradasTarde(),
-                                                                                  dateFormat);
+        ArrayList<LineaInformeVisitantes> informeEntradaTarde = devolverInformeEntradaTarde(listaObjetos.getListaEntradasTarde(),
+                                                                                            dateFormat);
         mostrarInforme(informeEntradaTarde);
         
         System.out.println("\n-Entrada Aniversario:");           
-        ArrayList<LineaInforme> informeEntradaAniversario = devolverInformeEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
-                                                                                              dateFormat);
+        ArrayList<LineaInformeVisitantes> informeEntradaAniversario = devolverInformeEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
+                                                                                                        dateFormat);
         mostrarInforme(informeEntradaAniversario);    
 
-        ArrayList<LineaInforme> informe = devolverInformeEntradasTotal(informeEntradaGeneral,
-                                                                       informeEntradaFamiliar,
-                                                                       informeEntradaLaborable,
-                                                                       informeEntradaTarde,
-                                                                       informeEntradaAniversario);
+        ArrayList<LineaInformeVisitantes> informe = devolverInformeEntradasTotal(informeEntradaGeneral,
+                                                                                 informeEntradaFamiliar,
+                                                                                 informeEntradaLaborable,
+                                                                                 informeEntradaTarde,
+                                                                                 informeEntradaAniversario);
         System.out.println("\nTOTAL de visitantes:"); 
         mostrarInforme(informe);      
 
         System.out.println("\nPromedio de Visitantes:");
         
-        promedioVisitantes = devolverTotalVisitante(informe)/media;
+        promedioVisitantes = (float)devolverTotalVisitante(informe)/media;
         
         System.out.println(promedioVisitantes);           
     }
 
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradasTotal(ArrayList<LineaInforme> informeEntradaGeneral,
-                                                                              ArrayList<LineaInforme> informeEntradaFamiliar,
-                                                                              ArrayList<LineaInforme> informeEntradaLaborable,
-                                                                              ArrayList<LineaInforme> informeEntradaTarde,
-                                                                              ArrayList<LineaInforme> informeEntradaAniversario) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradasTotal(ArrayList<LineaInformeVisitantes> informeEntradaGeneral,
+                                                                                        ArrayList<LineaInformeVisitantes> informeEntradaFamiliar,
+                                                                                        ArrayList<LineaInformeVisitantes> informeEntradaLaborable,
+                                                                                        ArrayList<LineaInformeVisitantes> informeEntradaTarde,
+                                                                                        ArrayList<LineaInformeVisitantes> informeEntradaAniversario) {
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>(); 
         
         
-        ArrayList<LineaInforme> informeAgrupado = agruparInformes(informeEntradaGeneral,
+        ArrayList<LineaInformeVisitantes> informeAgrupado = agruparInformes(informeEntradaGeneral,
                                                                   informeEntradaFamiliar,
                                                                   informeEntradaLaborable,
                                                                   informeEntradaTarde,
@@ -333,11 +333,11 @@ public class InformeVisitantes {
 
         }  
         
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
                
         for (String fecha: listaFechas) {
 
-            informe.add(new LineaInforme(fecha));
+            informe.add(new LineaInformeVisitantes(fecha));
         }
        
         for (int i=0; i < informe.size(); i++) {
@@ -353,8 +353,8 @@ public class InformeVisitantes {
         
     }    
 
-    private static ArrayList<LineaInforme> contarPrecio(ArrayList<LineaInforme> informe,
-                                                        ArrayList<LineaInforme> informeTmp) {
+    private static ArrayList<LineaInformeVisitantes> contarPrecio(ArrayList<LineaInformeVisitantes> informe,
+                                                                  ArrayList<LineaInformeVisitantes> informeTmp) {
         
         //Por cada fecha duplicada incrementamos Numero en el objeto lineaInforme
         for (int i=0; i < informe.size(); i++) {
@@ -370,7 +370,7 @@ public class InformeVisitantes {
                 
     }
 
-    private static void mostrarInformePrecio(ArrayList<LineaInforme> informe) {
+    private static void mostrarInformePrecio(ArrayList<LineaInformeVisitantes> informe) {
     
         for (int i = 0; i < informe.size(); i++) {
 
@@ -379,19 +379,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral,
-                                                                               DateFormat dateFormat  ) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradaGeneral(ArrayList<EntradaGeneral> listaEntradasGeneral,
+                                                                                         DateFormat dateFormat  ) {
         
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasGeneral.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime()),
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime()),
                                             listaEntradasGeneral.get(i).getPrecio()));
             
             listaFechas.add(dateFormat.format(listaEntradasGeneral.get(i).fechaHoraEntrada.getTime()));
@@ -405,19 +405,19 @@ public class InformeVisitantes {
         
     }
 
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradaAniversario(ArrayList<EntradaAniversario> listaEntradasAniversario,
-                                                                                   DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradaAniversario(ArrayList<EntradaAniversario> listaEntradasAniversario,
+                                                                                             DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasAniversario.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime()),
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime()),
                                             listaEntradasAniversario.get(i).getPrecio()));
             
             listaFechas.add(dateFormat.format(listaEntradasAniversario.get(i).fechaHoraEntrada.getTime()));
@@ -431,19 +431,19 @@ public class InformeVisitantes {
         
     }
 
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradaFamilia(ArrayList<EntradaFamilia> listaEntradasFamilia,
-                                                                               DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradaFamilia(ArrayList<EntradaFamilia> listaEntradasFamilia,
+                                                                                         DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final 
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
       
         for (int i = 0 ; i < listaEntradasFamilia.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime()),
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime()),
                                                                 listaEntradasFamilia.get(i).getPrecio()));
             
             listaFechas.add(dateFormat.format(listaEntradasFamilia.get(i).fechaHoraEntrada.getTime()));
@@ -457,19 +457,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradaLaborable(ArrayList<EntradaLaborable> listaEntradasLaborable,
-                                                                                 DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradaLaborable(ArrayList<EntradaLaborable> listaEntradasLaborable,
+                                                                                           DateFormat dateFormat) {
 
         //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasLaborable.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime()),
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime()),
                                                               listaEntradasLaborable.get(i).getPrecio()));
             
             listaFechas.add(dateFormat.format(listaEntradasLaborable.get(i).fechaHoraEntrada.getTime()));
@@ -484,19 +484,19 @@ public class InformeVisitantes {
         
     }
     
-    private static ArrayList<LineaInforme> devolverInformePrecioEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
-                                                                             DateFormat dateFormat) {
+    private static ArrayList<LineaInformeVisitantes> devolverInformePrecioEntradaTarde(ArrayList<EntradaTarde> listaEntradasTarde,
+                                                                                       DateFormat dateFormat) {
         
             //Recoge la fecha de las entradas (con duplicados).
-        ArrayList<LineaInforme> informeTmp = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informeTmp = new ArrayList<>();
         //Para almacenar las fechas sin duplicados y por orden se insercion.
         LinkedHashSet<String> listaFechas = new LinkedHashSet<>();
         //Informe final de fechas con número de visitas.
-        ArrayList<LineaInforme> informe = new ArrayList<>();
+        ArrayList<LineaInformeVisitantes> informe = new ArrayList<>();
         
         for (int i = 0 ; i < listaEntradasTarde.size() ; i++) {       
             
-            informeTmp.add(new LineaInforme(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime()),
+            informeTmp.add(new LineaInformeVisitantes(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime()),
                                                               listaEntradasTarde.get(i).getPrecio()));
             
             listaFechas.add(dateFormat.format(listaEntradasTarde.get(i).fechaHoraEntrada.getTime()));
@@ -510,46 +510,47 @@ public class InformeVisitantes {
         
     }    
     
-    private static float devolverPrecioTotalVisitante(ArrayList<LineaInforme> informe) {
+    private static float devolverPrecioTotalVisitante(ArrayList<LineaInformeVisitantes> informe) {
         
         float totalPrecio = 0;
         
-        for (LineaInforme lineaInforme: informe) {
+        for (LineaInformeVisitantes lineaInforme: informe) {
             totalPrecio = totalPrecio + lineaInforme.getPrecio();
         }
         
         return totalPrecio;
     }
+    
     private static void crearInformePrecio(ListaObjetos listaObjetos, DateFormat dateFormat, int media) {       
     
        float promedioPrecioVisitantes = 0.0F;        
         
         System.out.println("\n-Entrada General:");
-        ArrayList<LineaInforme> informeEntradaGeneral = devolverInformePrecioEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
+        ArrayList<LineaInformeVisitantes> informeEntradaGeneral = devolverInformePrecioEntradaGeneral(listaObjetos.getListaEntradaGeneral(), 
                                                                                             dateFormat );
         mostrarInformePrecio(informeEntradaGeneral);    
         
         System.out.println("\n-Entrada Familiar:");        
-        ArrayList<LineaInforme> informeEntradaFamiliar = devolverInformePrecioEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
+        ArrayList<LineaInformeVisitantes> informeEntradaFamiliar = devolverInformePrecioEntradaFamilia(listaObjetos.getListaEntradasFamilia(),
                                                                                              dateFormat);
         mostrarInformePrecio(informeEntradaFamiliar);  
         
         System.out.println("\n-Entrada Laborable:");   
-        ArrayList<LineaInforme> informeEntradaLaborable = devolverInformePrecioEntradaLaborable(listaObjetos.getListaEntradasLaborable(),
+        ArrayList<LineaInformeVisitantes> informeEntradaLaborable = devolverInformePrecioEntradaLaborable(listaObjetos.getListaEntradasLaborable(),
                                                                                                 dateFormat);
         mostrarInformePrecio(informeEntradaLaborable);  
         
         System.out.println("\n-Entrada de Tarde:");           
-        ArrayList<LineaInforme> informeEntradaTarde = devolverInformePrecioEntradaTarde(listaObjetos.getListaEntradasTarde(),
+        ArrayList<LineaInformeVisitantes> informeEntradaTarde = devolverInformePrecioEntradaTarde(listaObjetos.getListaEntradasTarde(),
                                                                                         dateFormat);
         mostrarInformePrecio(informeEntradaTarde);
         
         System.out.println("\n-Entrada Aniversario:");           
-        ArrayList<LineaInforme> informeEntradaAniversario = devolverInformePrecioEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
+        ArrayList<LineaInformeVisitantes> informeEntradaAniversario = devolverInformePrecioEntradaAniversario(listaObjetos.getListaEntradasAniversario(),
                                                                                                     dateFormat);
         mostrarInformePrecio(informeEntradaAniversario);    
 
-        ArrayList<LineaInforme> informe = devolverInformePrecioEntradasTotal(informeEntradaGeneral,
+        ArrayList<LineaInformeVisitantes> informe = devolverInformePrecioEntradasTotal(informeEntradaGeneral,
                                                                              informeEntradaFamiliar,
                                                                              informeEntradaLaborable,
                                                                              informeEntradaTarde,
