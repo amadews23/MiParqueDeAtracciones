@@ -7,7 +7,7 @@ import Gestion.ListaObjetos;
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.20 2019/8/2
+ * @version 1.20 2019/8/15
  */
  
 public class MenuPrincipal {
@@ -17,6 +17,7 @@ public class MenuPrincipal {
     private final MenuEntradas menuEntradas;
     private final MenuEmpleados menuEmpleados;
     private final MenuInformes menuInformes;
+    private final MenuGastoPersonal menuGastoPersonal;
     
     
     public MenuPrincipal(ListaObjetos listaObjetos) {
@@ -24,6 +25,7 @@ public class MenuPrincipal {
         menuEntradas = new MenuEntradas(listaObjetos);
         menuEmpleados = new MenuEmpleados(listaObjetos);
         menuInformes = new MenuInformes(listaObjetos);
+        menuGastoPersonal = new MenuGastoPersonal(listaObjetos);
     }
     
     public void menuPrincipal() {
@@ -39,8 +41,9 @@ public class MenuPrincipal {
             System.out.println("2- Gestionar entradas");
             System.out.println("3- Gestionar empleados"); 
             System.out.println("4- Resúmenes");  
-            //System.out.println("*5- Resúmenes de costes de atracción*");              
+            System.out.println("5- Gasto de personal");              
             System.out.println("6- SALIR\n");
+            
             seleccion = Varios.pedirOpcion();
         
             switch (seleccion) {
@@ -55,7 +58,10 @@ public class MenuPrincipal {
                     break;
                 case 4:
                     menuInformes.iniciar();
-                    break;                    
+                    break;   
+                case 5:
+                    menuGastoPersonal.iniciar();
+                    break;                       
                 case 6:
                     System.out.println("Saliendo del programa...");
                     break;                    
@@ -67,10 +73,4 @@ public class MenuPrincipal {
     
     }
 
-
-    //Entradas
-
-    //Empleados
-
-  
 }
