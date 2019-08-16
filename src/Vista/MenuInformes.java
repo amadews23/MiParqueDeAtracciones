@@ -1,6 +1,5 @@
 package Vista;
 
-import Controladores.ControladorPrincipal;
 import Utilidades.Varios;
 import Gestion.ListaObjetos;
 import Gestion.InformeVisitantes;
@@ -15,12 +14,11 @@ import Gestion.InformeVisitantesAtraccion;
 
 public class MenuInformes {
     
-    private final ControladorPrincipal controladorPrincipal;
+
     private final ListaObjetos listaObjetos;
     
     protected MenuInformes( ListaObjetos listaObjetos) {
         
-        controladorPrincipal = new ControladorPrincipal(listaObjetos);
         this.listaObjetos = listaObjetos;
     }
     
