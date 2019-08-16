@@ -1,5 +1,6 @@
 package Gestion;
 
+import Atracciones.Atraccion;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,30 +54,35 @@ public class InformeVisitantesAtraccion {
         
     }
     
-    private static void mostrarInforme(ArrayList<LineaInformeVisitantesAtraccion> informe, int media) {
+    private static void mostrarInforme(ArrayList<LineaInformeVisitantesAtraccion> informe, 
+                                       int media) {
     
         for (int i = 0; i < informe.size(); i++) {
 
-            System.out.println(informe.get(i).getNombre()+": "+informe.get(i).getNumero() + "      ,media: " + (float)informe.get(i).getNumero()/media);
+            System.out.println(informe.get(i).getNombre()+": "
+                               +informe.get(i).getNumero() + "      ,media: "
+                               + (float)informe.get(i).getNumero()/media);
         }        
         
     }    
     
-    private static void crearInforme(ListaObjetos listaObjetos, DateFormat dateFormat, int media) {       
+    private static void crearInforme(ArrayList <Atraccion> listaAtracciones,
+                                     DateFormat dateFormat, int media) {       
 
        ArrayList<LineaInformeVisitantesAtraccion> informe = new ArrayList<>();
        ArrayList<LineaInformeVisitantesAtraccion> informeTmp = new ArrayList<>();       
        LinkedHashSet<String> listaAtraccionesFecha = new LinkedHashSet<>();  
   
-       
-       for (int i=0; i < listaObjetos.getListaAtracciones().size(); i++) {
-           for (int j=0; j < listaObjetos.getListaAtracciones().get(i).getListaClientes().size(); j++) {
+       //Copiamos al LinkedHashSet (listaAtraccionesFecha) que almacenará sin duplicados
+       //y al ArrayList (informeTmp) con duplicados
+       for (int i=0; i < listaAtracciones.size(); i++) {
+           for (int j=0; j < listaAtracciones.get(i).getListaClientes().size(); j++) {
                
-               listaAtraccionesFecha.add(listaObjetos.getListaAtracciones().get(i).getNombreAtraccion()+" "
-                                    +dateFormat.format(listaObjetos.getListaAtracciones().get(i).getListaClientes().get(j).getFecha().getTime()));
+               listaAtraccionesFecha.add(listaAtracciones.get(i).getNombreAtraccion()+" "
+                                         +dateFormat.format(listaAtracciones.get(i).getListaClientes().get(j).getFecha().getTime()));
                
-               informeTmp.add(new LineaInformeVisitantesAtraccion(listaObjetos.getListaAtracciones().get(i).getNombreAtraccion()+" "
-                                                                  +dateFormat.format(listaObjetos.getListaAtracciones().get(i).getListaClientes().get(j).getFecha().getTime())));
+               informeTmp.add(new LineaInformeVisitantesAtraccion(listaAtracciones.get(i).getNombreAtraccion()+" "
+                                                                  +dateFormat.format(listaAtracciones.get(i).getListaClientes().get(j).getFecha().getTime())));
                
            }
        }
@@ -100,8 +106,9 @@ public class InformeVisitantesAtraccion {
            
         DateFormat dateFormat = new SimpleDateFormat("w-yyyy"); 
         
-        crearInforme(listaObjetos, dateFormat, 52);     
-        
+        crearInforme(listaObjetos.getListaAtracciones(),                     
+                     dateFormat, 
+                     52);             
     } 
     
     /**
@@ -118,8 +125,9 @@ public class InformeVisitantesAtraccion {
         //Ojo! son todos los meses de todos los años        
         DateFormat dateFormat = new SimpleDateFormat("MMMMMM"); 
         
-        crearInforme(listaObjetos, dateFormat, 12);     
-        
+        crearInforme(listaObjetos.getListaAtracciones(),
+                     dateFormat,
+                     12);            
     } 
     
     /**
@@ -134,7 +142,8 @@ public class InformeVisitantesAtraccion {
               
         DateFormat dateFormat = new SimpleDateFormat("yyyy"); 
         
-        crearInforme(listaObjetos, dateFormat, 1);     
-        
+        crearInforme(listaObjetos.getListaAtracciones(),
+                     dateFormat, 
+                     1);         
     }       
 }
