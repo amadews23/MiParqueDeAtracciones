@@ -19,17 +19,21 @@ public class ControladorEmpleado extends ControladorPersona {
     public ControladorEmpleado() {
     
     }
+    
     private EnumTipoEmpleado seleccionarTipoEmpleado() {
 
         int opcion = 0;
         
         try {
+            
            do {
                 System.out.println("Seleccione un numero de la lista");
                 opcion = Varios.pedirOpcion();
+                
               } while (opcion < 1 || opcion > EnumTipoEmpleado.values().length );
    
               switch (opcion) {
+                  
                   case 1:
                       return EnumTipoEmpleado.ATENCION;
                   case 2:
@@ -38,7 +42,9 @@ public class ControladorEmpleado extends ControladorPersona {
                       return EnumTipoEmpleado.RELACIONES;
                   case 4:
                       return EnumTipoEmpleado.RESPONSABLE;
+                      
               }
+              
         } catch (InputMismatchException e) {
              
             System.out.println("Inserte valores correctos:");
@@ -59,8 +65,11 @@ public class ControladorEmpleado extends ControladorPersona {
         int opcion;
         int dni =0;
         boolean valido = false;
+        
         while (valido == false) {
+            
             try {
+                
                 do {
                     System.out.println("Introduzca el dni del trabajor:");
                     opcion = Varios.pedirOpcion();
@@ -70,8 +79,8 @@ public class ControladorEmpleado extends ControladorPersona {
                     valido = true;
                     
                 } catch (InputMismatchException e) {
-                    System.out.println("Inserte valores correcctos:");
                     
+                    System.out.println("Inserte valores correcctos:");                    
                     return 0;
                 }
             }
@@ -92,10 +101,13 @@ public class ControladorEmpleado extends ControladorPersona {
         int dni = solicitarDni();
 
         if (persona != null && dni != 0) {
+            
             do {
                 System.out.println("¿Seguro quiere dar de alta el trabajador? "
                                    + "Pulse 1(Si) 0 2(No)");
+                
                 opcion = Varios.pedirOpcion();
+                
             } while (opcion < 1 || opcion > 2); 
             
             if (opcion == 1) {
