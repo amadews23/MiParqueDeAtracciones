@@ -12,6 +12,7 @@ public class EntradaAniversario extends EntradaGeneral {
     final static float DESCUENTO_ANIVERSARIO = -0.3F;
     public EntradaAniversario(GregorianCalendar fechaHoraEntrada, Cliente cliente, boolean esVip) {
         super(fechaHoraEntrada, cliente, esVip);
+        
                 this.precio = this.precio + (this.precio*DESCUENTO_ANIVERSARIO);
     }
    
