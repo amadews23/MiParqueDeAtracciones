@@ -10,12 +10,13 @@ import java.util.GregorianCalendar;
  */
 
 public class EntradaTarde extends EntradaGeneral {
+    
     final static float DESCUENTO_TARDE = -0.4F;
 
     public EntradaTarde(GregorianCalendar fechaHoraEntrada, Cliente cliente, boolean esVip) {
         super(fechaHoraEntrada, cliente, esVip);
+        
                 this.precio = this.precio + (this.precio*DESCUENTO_TARDE);
     }
-
    
 }
