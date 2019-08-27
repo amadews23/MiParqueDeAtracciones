@@ -13,7 +13,7 @@ import java.util.GregorianCalendar;
 
 public class ControladorEntradaAniversario {
 
-    public ControladorEntradaAniversario() {
+    public ControladorEntradaAniversario () {
     }
 
     public EntradaAniversario crearEntrada(Cliente cliente, GregorianCalendar fechaHoraHoy) {
