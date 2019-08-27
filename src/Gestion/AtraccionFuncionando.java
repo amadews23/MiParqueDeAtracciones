@@ -57,6 +57,4 @@ public class AtraccionFuncionando {
         this.atraccion = atraccion;
     }
     
-    
-    
 }
