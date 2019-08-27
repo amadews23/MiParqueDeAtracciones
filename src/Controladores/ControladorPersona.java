@@ -45,20 +45,25 @@ public class ControladorPersona {
                 do {
                     System.out.print("Día de nacimiento: ");
                     diaNacimiento = datosPersona.nextInt();
+                    
                 } while (diaNacimiento < 0 || diaNacimiento > 31);   
                 
                 do {
                     System.out.print("Mes de nacimiento: ");
-                    mesNacimiento = datosPersona.nextInt();                
+                    mesNacimiento = datosPersona.nextInt();  
+                    
                 } while (mesNacimiento < 0 || mesNacimiento > 12);
                 
                 do {
                     System.out.print("Año de nacimiento: ");
-                    anyoNacimiento = datosPersona.nextInt();  
-                } while (anyoNacimiento < 1899 || anyoNacimiento > 2019);    
+                    anyoNacimiento = datosPersona.nextInt();
+                    
+                } while (anyoNacimiento < 1899 || anyoNacimiento > 2019);  
+                
                 valido = true;
                 
             } catch (InputMismatchException e) {
+                
                 System.out.println("Inserte un número válido:");
                 datosPersona.next();
             }
@@ -68,8 +73,6 @@ public class ControladorPersona {
                                       diaNacimiento, 
                                       mesNacimiento, 
                                       anyoNacimiento);
-        return persona;
-        
-        
+        return persona;                
     } 
 }
