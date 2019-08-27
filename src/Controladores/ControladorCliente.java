@@ -28,6 +28,7 @@ public class ControladorCliente extends ControladorPersona {
         Persona persona = crearPersona();
         
         if (persona != null) {
+            
             int altura = 0;
             boolean esEstudiante = false;
             int opcion;
@@ -37,8 +38,11 @@ public class ControladorCliente extends ControladorPersona {
             boolean esDesempleado = false;
 
             boolean valido = false;
+            
             while (valido == false) {
+                
                 try {
+                    
                     do {
                         System.out.print("Altura en nº de centimetros aproximados");
                         opcion = Varios.pedirOpcion();
@@ -52,14 +56,17 @@ public class ControladorCliente extends ControladorPersona {
                         if (opcion2 == 1) {
                             esEstudiante = true;
                         }
+                        
                     } while (opcion2 < 0 || opcion2 > 2);   
             
                     do {
                         System.out.print("¿Es discapacitado? Pulse 1(Si) 0 2(No)");
                         opcion2 = Varios.pedirOpcion();
+                        
                         if (opcion2 == 1) {
                             esDiscapacitado = true;
                         }
+                        
                     } while (opcion2 < 0 || opcion2 > 2);
                 
                     do {
@@ -68,11 +75,13 @@ public class ControladorCliente extends ControladorPersona {
                         if (opcion2 == 1) {
                             esCarnetJoven = true;
                         }
+                        
                     } while (opcion2 < 0 || opcion2 > 2); 
                 
                     do {
                         System.out.print("¿Está en el paro? Pulse 1(Si) 0 2(No)");
                         opcion2 = Varios.pedirOpcion();
+                        
                         if (opcion2 == 1) {
                             esDesempleado = true;
                         }
@@ -81,6 +90,7 @@ public class ControladorCliente extends ControladorPersona {
                     valido = true;
                 
                 } catch (InputMismatchException e) {
+                    
                     System.out.println("Inserte valores correcctos:");
                     return null;
                 }
@@ -98,6 +108,7 @@ public class ControladorCliente extends ControladorPersona {
             return cliente;
             
         } 
+        
         return null;
     }
 }    
