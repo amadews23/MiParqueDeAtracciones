@@ -14,7 +14,7 @@ public enum EnumTipoEmpleado {
     RELACIONES("Realaciones publicas",0.2F),
     RESPONSABLE("Responsable de Atraccion",0.1F);
     
-    final static float SUELDO_BASE = 950F; 
+    private final static float SUELDO_BASE = 950F; 
     private final String nombreEmpleo;
     private final float incrementoSueldo ;
     
