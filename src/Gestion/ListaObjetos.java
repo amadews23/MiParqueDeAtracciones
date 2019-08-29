@@ -3,7 +3,8 @@ package Gestion;
 import Atracciones.Atraccion;
 import Gente.Empleado;
 import java.util.ArrayList;
-
+//Ejercicio d) examen Junio
+import Pantallas.Pantalla;
 /**
  *
  * @author Bartolome Vich Lozano
@@ -22,7 +23,8 @@ public class ListaObjetos {
     private ArrayList<Empleado> listaEmpleadosRelaciones;
     private ArrayList<Empleado> listaEmpleadosResponsable;
     private ArrayList<AtraccionFuncionando> listaAtraccionesFuncionando;
-
+    //Ejercicio d) examen Junio
+    private Pantalla pantalla;
 
     public ListaObjetos(ArrayList<Atraccion> listaAtracciones) {
         this.listaAtracciones = listaAtracciones;
@@ -40,7 +42,9 @@ public class ListaObjetos {
         this.listaEmpleadosRelaciones = new ArrayList<>();
         this.listaEmpleadosResponsable = new ArrayList<>();
         this.listaAtraccionesFuncionando = new ArrayList<>();
-        
+    
+        //Ejercicio d) examen Junio
+        this.pantalla = new Pantalla();
         
     }
 
@@ -253,6 +257,16 @@ public class ListaObjetos {
                 listaEmpleadosResponsable.add(empleado);
         }
 
-    }    
+       
+    } 
+    
+    //Ejercicio d) examen Junio
+    public Pantalla getPantalla() {
+        return pantalla;
+    }
+
+    public void setPantalla(Pantalla pantalla) {
+        this.pantalla = pantalla;
+    }
           
 }
