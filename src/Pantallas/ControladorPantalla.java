@@ -2,7 +2,6 @@
 package Pantallas;
 
 import Gestion.Entrada;
-//import java.util.GregorianCalendar;
 
 /**
  *
