@@ -3,11 +3,13 @@ package Vista;
 import Utilidades.Varios;
 import Gestion.ListaObjetos;
 
+import Pantallas.ControladorPantalla;
+
 
 /**
  *
  * @author Bartolome Vich Lozano
- * @version 1.20 2019/8/15
+ * @version 1.30 2019/8/29
  */
  
 public class MenuPrincipal {
@@ -19,6 +21,7 @@ public class MenuPrincipal {
     private final MenuInformes menuInformes;
     private final MenuGastoPersonal menuGastoPersonal;
     
+    private final MenuPantalla menuPantalla;
     
     public MenuPrincipal(ListaObjetos listaObjetos) {
         menuAtracciones = new MenuAtracciones(listaObjetos);
@@ -26,6 +29,8 @@ public class MenuPrincipal {
         menuEmpleados = new MenuEmpleados(listaObjetos);
         menuInformes = new MenuInformes(listaObjetos);
         menuGastoPersonal = new MenuGastoPersonal(listaObjetos);
+        
+        menuPantalla = new MenuPantalla(listaObjetos);
     }
     
     public void menuPrincipal() {
@@ -41,8 +46,11 @@ public class MenuPrincipal {
             System.out.println("2- Gestionar entradas");
             System.out.println("3- Gestionar empleados"); 
             System.out.println("4- Resúmenes");  
-            System.out.println("5- Gasto de personal");              
-            System.out.println("6- SALIR\n");
+            System.out.println("5- Gasto de personal"); 
+            
+            System.out.println("6- Pantalla"); 
+            
+            System.out.println("7- SALIR\n");
             
             seleccion = Varios.pedirOpcion();
         
@@ -61,15 +69,18 @@ public class MenuPrincipal {
                     break;   
                 case 5:
                     menuGastoPersonal.iniciar();
-                    break;                       
+                    break; 
                 case 6:
+                    menuPantalla.iniciar();
+                    break;
+                case 7:
                     System.out.println("Saliendo del programa...");
                     break;                    
                 default:
                     System.out.println("Seleccione una opción de las del Menú.");
                     break;
             }
-        } while (seleccion != 6);
+        } while (seleccion != 7);
     
     }
 
