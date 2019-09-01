@@ -13,12 +13,15 @@ import java.text.SimpleDateFormat;
  */
 
 public class EntradaGeneral extends Entrada {
+    
     protected final EnumTemporadaPrecio tipoTemporada; 
     protected final EnumTipoCliente tipoCliente; 
+    
     protected boolean esEstudiante; 
     protected boolean esDiscapacitado; 
     protected boolean esCarneJoven; 
     protected boolean esDesempleado; 
+    
     protected float precio;
 
     /**
@@ -32,7 +35,9 @@ public class EntradaGeneral extends Entrada {
                           boolean esVip) {
         
         super(fechaHoraEntrada, cliente, esVip);
+        
             this.fechaHoraEntrada = fechaHoraEntrada;
+            
             this.cliente = cliente;
             this.esVip = esVip;
             this.esEstudiante = cliente.isEsEstudiante();
@@ -41,7 +46,9 @@ public class EntradaGeneral extends Entrada {
             this.esDesempleado = cliente.isEsDesempleado();
             
             this.tipoTemporada = CalculosFechas.devolverTemporada(fechaHoraEntrada);
+            
             this.tipoCliente = CalculosFechas.devolverTipoCliente(cliente);
+            
             this.precio = CalculosPrecios.calcularPrecioEntrada(PRECIO_BASE_ENTRADA,
                                                                 tipoTemporada, 
                                                                 tipoCliente,                                                   
@@ -54,56 +61,70 @@ public class EntradaGeneral extends Entrada {
     }
 
     public boolean isEsEstudiante() {
+        
         return esEstudiante;
     }
 
     public void setEsEstudiante(boolean esEstudiante) {
+        
         this.esEstudiante = esEstudiante;
     }
 
     public boolean isEsDiscapacitado() {
+        
         return esDiscapacitado;
     }
 
     public void setEsDiscapacitado(boolean esDiscapacitado) {
+        
         this.esDiscapacitado = esDiscapacitado;
     }
 
     public boolean isEsCarneJoven() {
+        
         return esCarneJoven;
     }
 
     public void setEsCarneJoven(boolean esCarneJoven) {
+        
         this.esCarneJoven = esCarneJoven;
     }
 
     public boolean isEsDesempleado() {
+        
         return esDesempleado;
     }
 
     public void setEsDesempleado(boolean esDesempleado) {
+        
         this.esDesempleado = esDesempleado;
     }
 
   
 
     public EnumTemporadaPrecio getTipoTemporada() {
+        
         return tipoTemporada;
     }
 
     public EnumTipoCliente getTipoCliente() {
+        
         return tipoCliente;
     }
 
     public float getPrecio() {
+        
         return precio;
     }
 
     @Override
     public String toString() {
+        
         DecimalFormat formatoMoneda = new DecimalFormat("#.00 €");
         DecimalFormat formatoMonedaDescuentos = new DecimalFormat("#.0 €");
+        
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MMMMMM/yyyy");
+        
         String estudiante = "No";
         String discapacidad = "No";
         String carnetJoven = "No";
@@ -115,11 +136,13 @@ public class EntradaGeneral extends Entrada {
         String descuentoDesempleo = "";
         String descuento ="";
         String precioVip ="";
+        
         float descuentoEdad = 0F;
+        
         float precioTemporada = PRECIO_BASE_ENTRADA + (PRECIO_BASE_ENTRADA * tipoTemporada.getPorcentaje());
         
         if (tipoCliente.getDescuento() != 0) {
-            //descuentoEdad = precioTemporada +( precioTemporada * tipoCliente.getDescuento());
+            
             descuentoEdad = precioTemporada * tipoCliente.getDescuento();
       
         }
@@ -127,28 +150,44 @@ public class EntradaGeneral extends Entrada {
         float precioTipoCliente = precioTemporada - descuentoEdad;
                 
         if ( esEstudiante == true) {
+            
             estudiante = "Si";
-            descuentoEstudiante = "\n Estudiante:    " + formatoMoneda.format(precioTipoCliente * EnumClienteDescuentos.ESTUDIANTE.getDescuento());
+            descuentoEstudiante = "\n Estudiante:    " 
+                                  + formatoMoneda.format(precioTipoCliente * EnumClienteDescuentos.ESTUDIANTE.getDescuento());
         }
         
         if ( esDiscapacitado == true) {
+            
             discapacidad = "Si";
-            descuentoDiscapacidad = "\n Discapacidad: " + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.DISCAPACITADO.getDescuento()); 
+            descuentoDiscapacidad = "\n Discapacidad: "
+                                    + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.DISCAPACITADO.getDescuento()); 
         }
+        
         if ( esCarneJoven == true) {
+            
             carnetJoven = "Si";
-            descuentoCarnetJoven = "\n Carnet Joven:  " + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.CARNE_JOVEN.getDescuento());
+            descuentoCarnetJoven = "\n Carnet Joven:  " 
+                                   + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.CARNE_JOVEN.getDescuento());
         }
+        
         if ( esDesempleado == true) {
+            
             desempleado = "Si";
-            descuentoDesempleo = "\n Desempleado:   " + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.DESEMPLEADO.getDescuento());
+            descuentoDesempleo = "\n Desempleado:   "
+                                 + formatoMonedaDescuentos.format(precioTipoCliente * EnumClienteDescuentos.DESEMPLEADO.getDescuento());
         }
+        
         if ( esEstudiante == true || esDiscapacitado == true || esCarneJoven == true || esDesempleado == true ) {
-            descuento="\n* Otros descuentos (aplicados sobre la entrada de un " + tipoCliente.getNombreTipoCliente() +") *";
+            
+            descuento="\n* Otros descuentos (aplicados sobre la entrada de un " 
+                        + tipoCliente.getNombreTipoCliente() +") *";
         }
+        
         if (esVip == true) {
             vip = "Si";
-            precioVip = "\n* Precio VIP: " + (PRECIO_BASE_VIP + (PRECIO_BASE_VIP *  tipoCliente.getDescuento())) + " (Para " + tipoCliente.getNombreTipoCliente() + ")*";
+            precioVip = "\n* Precio VIP: " 
+                        + (PRECIO_BASE_VIP + (PRECIO_BASE_VIP *  tipoCliente.getDescuento())) 
+                        + " (Para " + tipoCliente.getNombreTipoCliente() + ")*";
         }
         
         return  "----------------------------------------------------------------------------\n"
