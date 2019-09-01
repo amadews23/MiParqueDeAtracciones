@@ -5,19 +5,17 @@ import Gente.Persona;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-
-
 /**
  * Métodos útiles para el manejo de fechas
  * 
  * @author Bartolome Vich Lozano
  * @version 1.00 2019/5/17
  */
-
 public class CalculosFechas {
     
 
     private static int diferenciaAnyos(int anyo, int mes, int dia) {
+        
         int anyoHoy, mesHoy, diaHoy, anyos;
         Calendar fechaHoy = GregorianCalendar.getInstance();
         
@@ -87,6 +85,7 @@ public class CalculosFechas {
 
         Calendar fechaAnyoNuevo = new GregorianCalendar(2019,0,1);
         Calendar fechaFinNavidades = new GregorianCalendar(2019,0,8);
+        
         int diaAnyoNuevo = fechaAnyoNuevo.get(Calendar.DAY_OF_MONTH);
         int diaFinNavidades = fechaFinNavidades.get(Calendar.DAY_OF_MONTH);
         
@@ -95,6 +94,7 @@ public class CalculosFechas {
               && (fechaEntrada.get(Calendar.DAY_OF_YEAR) <= diaFinNavidades) ) {
             
             tipoTemporada = EnumTemporadaPrecio.ALTA;
+            
             return tipoTemporada;
         }
 
@@ -104,20 +104,25 @@ public class CalculosFechas {
         
         //Verificamos si el mes pertenece a la temporada Baja
         for (int i=0; i<arrayTemporadaBaja.length; i++) {
+            
             if (fechaEntrada.get(Calendar.MONTH) == arrayTemporadaBaja[i]) {
                 tipoTemporada = EnumTemporadaPrecio.BAJA;
+                
                 return tipoTemporada;
             }    
         }
         
         //meses de TEMPORADA ALTA: Abril, Agosto y Diciembre
         int arrayTemporadaAlta[] ;
+        
         arrayTemporadaAlta = new int[] {Calendar.APRIL, Calendar.AUGUST, Calendar.DECEMBER};
         
         //Verificamos si el mes pertenece a la temporada Alta
         for (int i=0; i<arrayTemporadaAlta.length; i++) {
+            
             if (fechaEntrada.get(Calendar.MONTH) == arrayTemporadaAlta[i]) {
                 tipoTemporada = EnumTemporadaPrecio.ALTA;
+                
                 return tipoTemporada;
             }    
         }
