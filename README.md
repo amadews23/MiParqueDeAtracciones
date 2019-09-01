@@ -7,14 +7,20 @@
 ### Diagrama de clases:
 
 
+#### Package Gente:
 ![ScreenShot](/img/Gente.png)
 
+#### Package Atracciones:
 ![ScreenShot](/img/Atracciones.png)
 
+#### Package Inicio:
 ![ScreenShot](/img/Inicio.png)
 
+#### Package Vista:
 ![ScreenShot](/img/Vista.png)
 
+#### Package Controladores:
 ![ScreenShot](/img/Controladores.png)
 
+#### Package Gestion:
 ![ScreenShot](/img/Gestion.png)
